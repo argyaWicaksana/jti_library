@@ -7,7 +7,24 @@ Description: Medicle Template
 Version: 1.0.0
 
 */
+
+
 @import url("https://fonts.googleapis.com/css?family=Exo:500,600,700|Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url(../icons/font-awesome/css/font-awesome.min.css);
+@import url(../icons/simple-line-icons/css/simple-line-icons.css);
+@import url(../icons/weather-icons/css/weather-icons.min.css);
+@import url(../icons/cryptocoins/css/cryptocoins.css);
+@import url(../icons/cryptocoins/css/cryptocoins-colors.css);
+@import url(../icons/linea-icons/linea.css);
+@import url(../icons/ionicons/css/ionicons.css);
+@import url(../icons/themify-icons/themify-icons.css);
+@import url(../icons/flag-icon-css/flag-icon.min.css);
+@import url(../icons/material-design-iconic-font/materialdesignicons.min.css);
+@import url(../icons/pe-icon-set-weather/css/pe-icon-set-weather.min.css);
+@import url(../plugins/animate/animate.min.css);
+@import url(../plugins/metismenu/css/metisMenu.min.css);
+@import url(../plugins/bootstrap-select/dist/css/bootstrap-select.min.css);
 html {
   overflow-x: hidden;
 }
@@ -17,7 +34,7 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
-  color: #6F8BA4;
+  /* color: #003868; */
   font-weight: 400;
 }
 
@@ -56,13 +73,13 @@ p {
   line-height: 30px;
 }
 
-.navbar-toggle .icon-bar {
+/* .navbar-toggle .icon-bar {
   background: #223a66;
-}
+} */
 
 input[type="email"], input[type="password"], input[type="text"], input[type="tel"] {
   box-shadow: none;
-  height: 45px;
+  height: 40px;
   outline: none;
   font-size: 14px;
 }
@@ -72,19 +89,82 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border: 1px solid #223a66;
 }
 
-.form-control {
-  box-shadow: none;
-  border-radius: 0;
-}
+@media (min-width: 768px) {
+  .d-md-none {
+    display: none !important; } }
 
-.form-control:focus {
-  box-shadow: none;
-  border: 1px solid #223a66;
-}
+    .searchBox {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform:  translate(-50%,50%);
+      background: #161853;
+      height: 40px;
+      border-radius: 40px;
+      /* padding: 10px; */
+      
+  }
+  
+  .searchBox:hover > .searchInput {
+      width: 240px;
+      padding: 0 6px;
+  }
+  
+  .searchBox:hover > .searchButton {
+    background: white;
+    color : #161853;
+  }
+  
+  .searchButton {
+      color: white;
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #161853;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s;
+  }
+  
+  .searchInput {
+      border:none;
+      background: none;
+      outline:none;
+      float:left;
+      padding: 0;
+      color: white;
+      font-size: 16px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0px;
+  
+  }
+  
+  @media screen and (max-width: 620px) {
+  .searchBox:hover > .searchInput {
+      width: 150px;
+      padding: 0 6px;
+  }
+  }
 
-.py-7 {
-  padding: 7rem 0px;
-}
+  .card{
+    background: #292C6D;
+    outline-color: rgb(218, 216, 255);
+    
+  }
+
+  .card-body{
+    background: #292C6D;
+    border-color: rgb(218, 216, 255);
+    border-radius: 5%;
+    outline-color: #dedede;
+  }
+
+  .hr{
+    color:#000;
+  }
 
 .btn {
   display: inline-block;
@@ -200,32 +280,28 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .bg-gray {
-  background: #eff0f3;
-}
-
-.bg-primary {
-  background: #223a66;
+  background: #FAEDF0;
 }
 
 .bg-primary-dark {
-  background: #152440;
+  background: #161853;
 }
 
-.bg-primary-darker {
-  background: #090f1a;
+.bg-red{
+  background: #EC255A;
 }
 
-.bg-dark {
-  background: #222;
+.bg-content{
+  background: #292C6D;
 }
 
-.bg-gradient {
-  background-image: linear-gradient(145deg, rgba(19, 177, 205, 0.95) 0%, rgba(152, 119, 234, 0.95) 100%);
+/* .bg-gradient {
+  background-image: linear-gradient(145deg, rgb(76, 53, 117) 50%, rgba(19, 177, 205, 0.95) 100%);
   background-repeat: repeat-x;
-}
+} */
 
 .section {
-  padding: 100px 0;
+  padding: 50px 80px;
 }
 
 .section-sm {
@@ -374,26 +450,48 @@ a:focus {
   }
 }
 
-#navbarmain {
-  padding: 20px 0px;
-}
-
 #navbarmain .nav-link {
   font-weight: 600;
-  padding: 10px 15px;
-  color: #222;
+  padding-right: 60px;
+  color: rgb(218, 216, 255);
   font-family: "Exo", sans-serif;
   text-transform: capitalize;
   font-size: 16px;
   transition: all .25s ease;
 }
 
-.dropdown-toggle::after {
-  display: none;
+.navbar-brand {
+  margin-top: 5px;
+  margin-left: 35px;
 }
 
-.navbar-brand {
-  margin-top: 10px;
+.icons > a {
+  position: relative;
+  display: inline-block; }
+  .icons > a i {
+    font-size: 1.50rem;
+    color: #abafb3; }
+
+.icons.active .drop-down {
+  display: block; }
+
+/* .drop-down {
+  display: none;
+  z-index: 9999;
+  width: 20rem;
+  top: 0rem !important;
+  position: absolute;
+  right: 0 !important;
+  left: auto !important;
+  transform: translate3d(0px, 75px, 0px) !important;
+  transition: all 0.4s ease-in-out;
+  border-top: 0;
+  background: #fff;
+  color: #000;
+  box-shadow: 0px 1px 10px 0 rgba(0, 0, 0, 0.15); }
+
+.dropdown-toggle::after {
+  display: none;
 }
 
 .dropdown .dropdown-menu {
@@ -429,7 +527,7 @@ a:focus {
 
 .dropdown .dropdown-item:hover {
   color: #e12454;
-}
+} */
 
 .header-top-bar {
   background: #223a66;

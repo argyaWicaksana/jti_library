@@ -1,5 +1,5 @@
-<footer class="footer section gray-bg">
-    <div class="container">
+<footer class="footer section bg-gray">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 mr-auto col-sm-6">
                 <div class="widget mb-5 mb-lg-0">
@@ -54,23 +54,22 @@
                 </div>
             </div>
         </div>
-
-        <div class="footer-btm py-4 mt-5">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-12">
-                    <div class="text-center copyright">
-                        &copy; Copyright Reserved to <span class="text-color">JTI E-Library</span> by <a href="https://themefisher.com/" target="_blank">Group 4</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <a class="backtop js-scroll-trigger" href="#top">
-                        <i class="icofont-long-arrow-up"></i>
-                    </a>
-                </div>
+    </div>
+</footer>
+<!-- <div class="footer-btm py-4 mt-5 bg-red"> -->
+    <div class="py-4 row align-items-center justify-content-between bg-red">
+        <div class="col-lg-12">
+            <div class="text-center copyright">
+                &copy; Copyright Reserved to <span class="text-color">JTI E-Library</span> by <a href="https://themefisher.com/" target="_blank">Group 4</a>
             </div>
         </div>
     </div>
-</footer>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <a class="backtop js-scroll-trigger" href="#top">
+                <i class="icofont-long-arrow-up"></i>
+            </a>
+        </div>
+    </div>
+<!-- </div> -->

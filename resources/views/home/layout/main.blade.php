@@ -8,6 +8,8 @@
 
     <title>JTI E-Library</title>
 
+    <script src="https://kit.fontawesome.com/af227b05f6.js" crossorigin="anonymous"></script>
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png" />
 
@@ -24,11 +26,12 @@
 
 </head>
 
-<body id="top">
+<body id="top" class="bg-primary-dark">
 
     @include('home.layout.navbar')
-    <hr><br>
+    <hr color="black" size="1rem"><br>
     @yield('content')
+    <br>
     @include('home.layout.footer')
 
     <!-- 

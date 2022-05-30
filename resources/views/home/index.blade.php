@@ -5,7 +5,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-lg-2 col-sm-6">
-                <div class="card">
+                <div class="card card-outline">
                     <div class="card-body">
                         <div class="text-center">
                             <img src="assets/images/books/book-1.jpeg" class="w-100" alt="">
