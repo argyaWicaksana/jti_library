@@ -25,4 +25,16 @@ class Book extends Model
         'description',
     ];
     
+    public function publisher(){
+        return $this->belongsToMany(Publisher::class);
+    }
+
+    public function type(){
+        return $this->belongsToMany(Type::class);
+    }
+
+    public function borrow_transaction(){
+        return $this->belongsToMany(Borrow_transaction::class,'book_borrow_transaction','borrow_transaction_id','book_id')->withPivot('number_book_borrow');
+    }
+
 }

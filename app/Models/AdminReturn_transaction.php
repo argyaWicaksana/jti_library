@@ -5,18 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class AdminReturn_transaction extends Model
 {
     use HasFactory;
-    protected $table='name'; 
+    protected $table='admin_return_transaction'; 
     protected $primaryKey = 'id'; 
   
     protected $fillable = [
-        //id
-       'name',
+       'admin_id',
+       'return_transaction',
     ];
-    
-    public function book(){
-        return $this->hasOne(Book::class);
-    }
 }

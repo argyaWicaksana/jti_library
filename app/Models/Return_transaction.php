@@ -16,4 +16,11 @@ class Return_transaction extends Model
        'fine',
        'date_returnday',
     ];
+
+    public function borrow_transaction(){
+        return $this->hasOne(Borrow_transaction::class);
+    }
+
+    
+
 }
