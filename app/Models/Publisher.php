@@ -15,4 +15,8 @@ class Publisher extends Model
         //id
        'name',
     ];
+
+    public function book(){
+        return $this->hasOne(Book::class);
+    }
 }
