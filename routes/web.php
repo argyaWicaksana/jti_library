@@ -24,3 +24,15 @@ Route::get('/home', function (){
 Route::get('/main', function (){
     return view ('home.layout.main');
 });
+
+Route::get('/cart', function (){
+    return view ('home.cart');
+});
+
+Route::get('/about', function (){
+    return view ('home.about');
+});
+
+Route::get('/contactus', function (){
+    return view ('home.contactus');
+});

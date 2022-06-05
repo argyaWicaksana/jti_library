@@ -2,62 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
-    <meta name="author" content="JTI E-Library">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>JTI E-Library</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-    <script src="https://kit.fontawesome.com/af227b05f6.js" crossorigin="anonymous"></script>
+    <!-- Favicons -->
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- bootstrap.min css -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <!-- Icon Font Css -->
-    <link rel="stylesheet" href="assets/plugins/icofont/icofont.min.css">
-    <!-- Slick Slider  CSS -->
-    <link rel="stylesheet" href="assets/plugins/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="assets/plugins/slick-carousel/slick/slick-theme.css">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
 
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.min.css" />
+
+    <!-- =======================================================
+  * Template Name: Bootslander - v4.7.2
+  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
-<body id="top" class="bg-primary-dark">
-
-    @include('home.layout.navbar')
+<body>
+    @include('home.layout.header')
     <hr color="black" size="1rem"><br>
     @yield('content')
     <br>
     @include('home.layout.footer')
 
-    <!-- 
-    Essential Scripts
-    =====================================-->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
 
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
 
-    <!-- Main jQuery -->
-    <script src="assets/plugins/jquery/jquery.js"></script>
-    <!-- Bootstrap 4.3.2 -->
-    <script src="assets/plugins/bootstrap/js/popper.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/plugins/counterup/jquery.easing.js"></script>
-    <!-- Slick Slider -->
-    <script src="assets/plugins/slick-carousel/slick/slick.min.js"></script>
-    <!-- Counterup -->
-    <script src="assets/plugins/counterup/jquery.waypoints.min.js"></script>
-
-    <script src="assets/plugins/shuffle/shuffle.min.js"></script>
-    <script src="assets/plugins/counterup/jquery.counterup.min.js"></script>
-    <!-- Google Map -->
-    <script src="assets/plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
-
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/contact.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
