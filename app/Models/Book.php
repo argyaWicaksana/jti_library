@@ -20,6 +20,8 @@ class Book extends Model
         'stock',
         'author',
         'isbn_issn',
+        'type_id',
+        'publisher_id',
         //type_id
         //publisher_id
         'description',
