@@ -15,9 +15,9 @@ class CreateAdminBorrowTransactionsTable extends Migration
     {
         Schema::create('admin_borrow_transaction', function (Blueprint $table) {
             $table->id();
-            $table->string('admin_id')->nullable();
-            $table->string('borrow_transaction_id')->nullable();
+            $table->unsignedBigInteger('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin');
+            $table->unsignedBigInteger('borrow_transaction_id');
             $table->foreign('borrow_transaction_id')->references('id')->on('borrow_transaction');
             $table->timestamps();
         });

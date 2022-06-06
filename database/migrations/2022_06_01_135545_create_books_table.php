@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Publisher;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,10 +23,16 @@ class CreateBooksTable extends Migration
             $table->integer('stock');
             $table->string('author');
             $table->string('isbn_issn');
+
+            $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type');
+
+            $table->unsignedBigInteger('publisher_id');
             $table->foreign('publisher_id')->references('id')->on('publisher');
+            
             $table->string('description');
         });
+
     }
 
     /**
