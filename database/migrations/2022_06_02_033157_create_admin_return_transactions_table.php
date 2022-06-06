@@ -15,9 +15,9 @@ class CreateAdminReturnTransactionsTable extends Migration
     {
         Schema::create('admin_return_transaction', function (Blueprint $table) {
             $table->id();
-            $table->string('admin_id')->nullable();
-            $table->string('return_transaction_id')->nullable();
+            $table->unsignedBigInteger('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin');
+            $table->unsignedBigInteger('return_transaction_id');
             $table->foreign('return_transaction_id')->references('id')->on('return_transaction');
             $table->timestamps();
         });

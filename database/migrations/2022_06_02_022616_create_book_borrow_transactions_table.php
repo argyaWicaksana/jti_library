@@ -15,9 +15,9 @@ class CreateBookBorrowTransactionsTable extends Migration
     {
         Schema::create('book_borrow_transaction', function (Blueprint $table) {
             $table->id();
-            $table->string('book_id')->nullable();
-            $table->string('borrow_transaction_id')->nullable();
+            $table->unsignedBigInteger('book_id');
             $table->foreign('book_id')->references('id')->on('book');
+            $table->unsignedBigInteger('borrow_transaction_id');
             $table->foreign('borrow_transaction_id')->references('id')->on('borrow_transaction');
             $table->integer('number_book_borrow');
         });
