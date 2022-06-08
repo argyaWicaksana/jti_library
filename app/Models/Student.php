@@ -24,4 +24,5 @@ class Student extends Model
     public function borrow_transaction(){
         return $this->hasOne(Borrow_transaction::class);
     }
+    
 }

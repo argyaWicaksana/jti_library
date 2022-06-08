@@ -22,5 +22,4 @@ class Admin extends Model
         return $this->belongsToMany(Borrow_transaction::class,'admin_borrow_transaction','borrow_transaction_id','admin_id')->withPivot('timestamps');
     }
 
-    
 }
