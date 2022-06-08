@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
         Schema::create('book', function (Blueprint $table) {
             $table->id('id');
             $table->string('title');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->date('year');
             $table->string('status');
             $table->integer('stock');
@@ -30,7 +30,7 @@ class CreateBooksTable extends Migration
             $table->unsignedBigInteger('publisher_id');
             $table->foreign('publisher_id')->references('id')->on('publisher');
             
-            $table->string('description');
+            $table->string('description')->nullable();
         });
 
     }

@@ -15,7 +15,7 @@ class CreateReturnTransactionsTable extends Migration
     {
         Schema::create('return_transaction', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('fine');
+            $table->integer('fine')->nullable();
             
             $table->unsignedBigInteger('borrow_transaction_id');
             $table->foreign('borrow_transaction_id')->references('id')->on('borrow_transaction');
