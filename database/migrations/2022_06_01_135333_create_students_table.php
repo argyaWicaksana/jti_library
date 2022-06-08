@@ -17,8 +17,8 @@ class CreateStudentsTable extends Migration
             $table->id('id');
             $table->string('name');
             $table->string('nim');
-            $table->string('profile_picture');
-            $table->string('ktm_picture');
+            $table->string('profile_picture')->nullable();
+            $table->string('ktm_picture')->nullable();
             $table->string('username');
             $table->string('password');
         });
