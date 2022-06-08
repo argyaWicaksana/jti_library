@@ -29,4 +29,9 @@ class Borrow_transaction extends Model
     public function admin(){
         return $this->belongsToMany(Admin::class,'admin_borrow_transaction','borrow_transaction_id','admin_id')->withPivot('timestamps');
     }
+    
+    public function book(){
+        return $this->belongsToMany(Book::class,'book_borrow_transaction','borrow_transaction_id','book_id')->withPivot('number_book_borrow');
+    }
+
 }

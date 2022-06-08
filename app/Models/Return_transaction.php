@@ -22,11 +22,4 @@ class Return_transaction extends Model
         return $this->hasOne(Borrow_transaction::class);
     }
 
-    public function student(){
-        return $this->belongsToMany(Student::class);
-    }
-    
-
-    
-
 }
