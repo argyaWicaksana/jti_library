@@ -29,3 +29,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/register', 'register');
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
