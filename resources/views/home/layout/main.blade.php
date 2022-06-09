@@ -42,7 +42,8 @@
 
 <body>
     @include('home.layout.header')
-    <hr color="black" size="1rem"><br>
+    <hr color="black" size="1rem">
+    <br>
     @yield('content')
     <br>
     @include('home.layout.footer')
