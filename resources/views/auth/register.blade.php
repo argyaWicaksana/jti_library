@@ -100,8 +100,10 @@
                                 <button type="submit" class="btn btn-001">
                                     {{ __('Register') }}
                                 </button>
+                            </div>
+                            <div class="col-md-6 offset-md-4">
                                 {{ __(' Already have account?') }}
-                                <a href="{{ route('register') }}" class="btn btn-link">Register</a>
+                                <a href="{{ route('register') }}" class="btn btn-link">Login</a>
                             </div>
                         </div>
                     </form>
