@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-md-6 offset-md-4">
                                 {{ __(' Already have account?') }}
-                                <a href="{{ route('register') }}" class="btn btn-link">Login</a>
+                                <a href="{{ route('login') }}" class="btn btn-link">Login</a>
                             </div>
                         </div>
                     </form>
