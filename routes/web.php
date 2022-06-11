@@ -32,4 +32,5 @@ Route::controller(HomeController::class)->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::get('login', [LoginController::class, 'index'])->name('login');
