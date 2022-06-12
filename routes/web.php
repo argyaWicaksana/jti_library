@@ -34,3 +34,7 @@ Auth::routes();
 
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
+
+Route::get('/admindashboard', function () {
+    return view ('dashboard.admin.dashboard');
+});
