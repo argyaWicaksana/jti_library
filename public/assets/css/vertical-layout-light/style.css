@@ -13380,6 +13380,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 
 .card-dashboard{
   margin-top: 20px;
+  padding: 10px;
 }
 
 .card > hr {
@@ -20757,6 +20758,10 @@ code {
 
 .row-dashboard{
   padding: 50px;
+  border: 1px;
+  border-color: #000;
+  border-style: initial;
+  border-width: 1px;
 }
 
 .total {
@@ -29800,33 +29805,35 @@ div.tagsinput span.tag a {
   border-radius: 0 6px 6px 0;
 }
 
-.navbar .navbar-menu-wrapper .navbar-nav .nav-item .search-form {
+.nav-item .search-form {
   position: relative;
-  margin-right: 0;
+  margin-right: 20px;
   vertical-align: middle;
   height: 14px;
+  margin-top: 5px;
 }
 
-.rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item .search-form {
+.nav-item .search-form {
   margin-right: 0;
-  margin-left: 0;
+  margin-left: 10px;
 }
 
-.navbar .navbar-menu-wrapper .navbar-nav .nav-item .search-form i {
+.nav-item .search-form i {
   font-size: 1.25rem;
   position: absolute;
   left: 0;
-  top: 60%;
+  top: 100%;
   transform: translateY(-50%);
   color: #212121;
+  padding-left: 10px;
 }
 
-.rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item .search-form i {
+.nav-item .search-form i {
   left: auto;
   right: 0;
 }
 
-.navbar .navbar-menu-wrapper .navbar-nav .nav-item .search-form input {
+.nav-item .search-form input {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -29837,7 +29844,7 @@ div.tagsinput span.tag a {
   transition: width 400ms ease, background 400ms ease;
 }
 
-.navbar .navbar-menu-wrapper .navbar-nav .nav-item .search-form input:focus {
+.nav-item .search-form input:focus {
   background-color: transparent;
   border-bottom: 1px solid #212121;
   border-radius: 0;
@@ -29847,7 +29854,7 @@ div.tagsinput span.tag a {
   width: 140px;
 }
 
-.rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item .search-form input:focus {
+.nav-item .search-form input:focus {
   padding-right: 30px;
   padding-left: 0;
 }

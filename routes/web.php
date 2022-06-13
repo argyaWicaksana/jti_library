@@ -29,12 +29,21 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/register', 'register');
 });
 
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/studentdashboard', 'dashboard');
+    Route::get('/cart', 'cart');
+    Route::get('/account', 'account');
+});
+
+Route::controller(AdminController::class)->group(function () {
+    Route::get('/admindashboard', 'dashboard');
+    Route::get('/adminbooks', 'books');
+    Route::get('/adminstudent', 'student');
+    Route::get('/admintransaction', 'transaction');
+});
+
 
 Auth::routes();
 
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
-
-Route::get('/admindashboard', function () {
-    return view ('dashboard.admin.dashboard');
-});

@@ -11,15 +11,19 @@
                             <li class="nav-item">
                                 <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Audiences</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab" aria-selected="false">Demographics</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
-                                <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab" aria-selected="false">More</a>
+                                <form class="search-form" action="#">
+                                    <i class="icon-search"></i>
+                                    <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                                </form>
                             </li>
+
                         </ul>
                         <div>
                             <div class="btn-wrapper">
@@ -31,23 +35,36 @@
                     </div>
                     <div class="card card-dashboard">
                         <div class="card-body text-center">
-                            <h4 class="card-title">LIBRARY INFORMATION</h4>
-                            <div class="container">
-                                <div class="row row-dashboard">
-                                    <div class="col">
-                                        <div>
-                                            <p class="dashboard-information">Total Students</p>
-                                            <h3 class="total">1000</h3>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div>
-                                            <p class="dashboard-information">Total Books</p>
-                                            <h3 class="total">1000</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h4 class="card-title">The List of Student</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">First</th>
+                                        <th scope="col">Last</th>
+                                        <th scope="col">Handle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
