@@ -8,31 +8,25 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home.index', [
+        return view('home.index',[
             "title" => 'Home'
         ]);
     }
     public function login()
     {
-        return view('login', [
+        return view('home.login',[
             "title" => 'Login'
-        ]);
-    }
-    public function register()
-    {
-        return view('register', [
-            "title" => 'Register'
         ]);
     }
     public function about()
     {
-        return view('home.about', [
+        return view('home.about',[
             "title" => 'About'
         ]);
     }
     public function contactus()
     {
-        return view('home.contactus', [
+        return view('home.contactus',[
             "title" => 'Contactus'
         ]);
     }
