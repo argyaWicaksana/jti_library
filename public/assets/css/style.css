@@ -599,6 +599,7 @@ h6 {
 --------------------------------------------------------------*/
 section {
   padding: 60px 0;
+  margin-top: 60px;
   overflow: hidden;
 }
 
@@ -712,6 +713,7 @@ section {
   padding-bottom: 50px;
   padding-top: 0%;
 }
+
 .container-search{
   padding-top: 40px;
   padding-right: 70px;
