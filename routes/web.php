@@ -25,16 +25,22 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/about', 'about');
     Route::get('/contactus', 'contactus');
-    Route::get('/login', 'login');
+     Route::get('/login', 'login');
     Route::get('/register', 'register');
 });
 
-
 Auth::routes();
+Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'create']);
+
 
 Route::get('/admindashboard', function () {
     return view ('dashboard.admin.dashboard');
+});
+
+Route::get('/',function(){
+    Auth::logout();
+    return redirect('/');
 });
