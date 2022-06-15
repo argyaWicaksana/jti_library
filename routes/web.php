@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminTypeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,7 @@ Route::get('/admindashboard', function () {
 Route::resource('/admindashboard',)->middleware('admin');
 
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
-
+Route::get('/student/print_pdf', [StudentController::class,'print_pdf'])->name('print_pdf');
 // Route::get('/',function(){
 //     Auth::logout();
 //     return redirect('/');
