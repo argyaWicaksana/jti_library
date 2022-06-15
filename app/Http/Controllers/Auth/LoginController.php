@@ -101,7 +101,7 @@ class LoginController extends Controller
  
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
+            
             return redirect()->intended('/admindashboard');
         }
  
@@ -109,4 +109,22 @@ class LoginController extends Controller
             'username' => 'The provided credentials do not match our records',
         ]);
     }
+
+    // public function authenticate(Request $request){
+    //     if (Auth::attempt($request->only('username','password'))) {
+    //         $request->session()->regenerate();
+    //         return redirect('/home');
+    //     }
+    //     return back()->withErrors([
+    //         'username' => 'The provided credentials do not match our records',
+    //     ]);
+    // }
+
+    // public function logout()
+    // {
+    //     Auth::logout();
+    //     return redirect('/');
+    // }
+
+
 }
