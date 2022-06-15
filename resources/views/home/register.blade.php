@@ -8,7 +8,7 @@
                 <div class="card-header text-center">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -43,7 +43,7 @@
                             <label for="profile_picture" class="col-md-4 col-form-label text-md-end">{{ __('Profile Picture') }}</label>
 
                             <div class="col-md-6">
-                                <input id="profile_picture" type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture" value="{{ old('profile_picture') }}" required autocomplete="profile_picture" autofocus>
+                                <input id="profile_picture" type="file" class="form-control @error('profile_picture') is-invalid @enderror" name="profile_picture" value="{{ old('profile_picture') }}" required autocomplete="profile_picture" autofocus accept="image/">
 
                                 @error('profile_picture')
                                 <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                             <label for="ktm_picture" class="col-md-4 col-form-label text-md-end">{{ __('KTM Picture') }}</label>
 
                             <div class="col-md-6">
-                                <input id="ktm_picture" type="file" class="form-control @error('ktm_picture') is-invalid @enderror" name="ktm_picture" value="{{ old('ktm_picture') }}" required autocomplete="ktm_picture" autofocus>
+                                <input id="ktm_picture" type="file" class="form-control @error('ktm_picture') is-invalid @enderror" name="ktm_picture" value="{{ old('ktm_picture') }}" required autocomplete="ktm_picture" autofocus accept="image/">
 
                                 @error('ktm_picture')
                                 <span class="invalid-feedback" role="alert">

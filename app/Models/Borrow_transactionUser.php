@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AdminBorrow_transaction extends Model
+class Borrow_transactionUser extends Model
 {
     use HasFactory;
-    protected $table='admin_borrow_transaction'; 
+    protected $table='borrow_transaction_user'; 
     protected $primaryKey = 'id'; 
   
     protected $fillable = [
-       'admin_id',
-       'borrow_transaction_id',
+        'user_id',
+        'borrow_transaction_id',
     ];
+
+
 }
