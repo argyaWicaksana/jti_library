@@ -33,38 +33,64 @@
                             </div>
                         </div>
                     </div>
+                    <div class="float-right my-2">
+                                <a class="btn btn-success" href="{{ route('student.create') }}"> Input Student Data</a>
+                            </div>
                     <div class="card card-dashboard">
                         <div class="card-body text-center">
                             <h4 class="card-title">The List of Student</h4>
+                            @if ($message = Session::get('success'))<div class="alert alert-success">
+                                <p>{{ $message }}</p>
+                            </div>
+                            @endif
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Nim</th>
+                                        <th scope="col">Profile_picture</th>
+                                        <th scope="col">Ktm_Picture</th>
+                                        <th scope="col">Username</th>
+                                        <th width="280px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($student as $mhs)
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>{{ $mhs ->name }}</td>
+                                        <td>{{ $mhs ->nim }}</td>
+                                        <td>
+                                            @php
+                                            $pathImage = '';
+                                            $student->profile_picture ? ($pathImage = 'storage/' . $student->profile_picture) : ($pathImage = 'picture/empty.png');
+                                            @endphp
+                                            <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
+                                        </td>
+                                        <td>
+                                            @php
+                                            $pathImage = '';
+                                            $student->ktm_picture ? ($pathImage = 'storage/' . $student->ktm_picture) : ($pathImage = 'picture/empty.png');
+                                            @endphp
+                                            <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
+                                        </td>
+                                        <td>{{ $mhs ->username }}</td>
+                                        <td>
+                                            <form action="{{ route('student.destroy',['student'=>$mhs->id]) }}" method="POST">
+                                                <a class="btn btn-info" href="{{ route('student.show',$mhs->id) }}">Show</a>
+                                                <a class="btn btn-primary" href="{{ route('student.edit',$mhs->id) }}">Edit</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-flex justify-content-center">
+                                {{ $student->links()}}
+                            </div>
                         </div>
                     </div>
                 </div>

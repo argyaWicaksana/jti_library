@@ -67,7 +67,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/adminstudent">
+          <a class="nav-link" href="/student">
             <i class="mdi mdi-account menu-icon"></i>
             <span class="menu-title">Student</span>
           </a>
