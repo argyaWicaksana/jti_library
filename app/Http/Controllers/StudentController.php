@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use DB;
-use App\Models\CourseStudentModel;
 use Illuminate\Support\Facades\Storage;
 use PDF;
 
@@ -20,7 +19,7 @@ class StudentController extends Controller
     {
         $student = Student::paginate(3);
         // $posts = Student::orderBy('id','asc')->paginate(3);
-        return view('dashboard.admin.student', compact('student'));
+        return view('admin.student.index', compact('student'));
         
     }
 
@@ -43,7 +42,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.student.create');
     }
 
     /**
@@ -77,7 +76,7 @@ class StudentController extends Controller
         $student->username = $request->get('Username');
         $student->password = $request->get('Password');
 
-        return redirect()->route('dashboard.admin.student')
+        return redirect()->route('admin.student.index')
             ->with('success', 'Student succesfully added');
 
     }
@@ -92,7 +91,7 @@ class StudentController extends Controller
     {
         $Student = Student::with('class')->where('id', $id)->first();
 
-        return view('student.detail',['Student' => $Student]);
+        return view('dashboard.admin.student.detail',['Student' => $Student]);
     }
 
     /**

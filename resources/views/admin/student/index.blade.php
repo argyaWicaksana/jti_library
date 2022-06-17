@@ -1,4 +1,4 @@
-@extends('dashboard.layout.main')
+@extends('layout.main')
 
 @section('content')
 <div class="main-panel">
@@ -34,8 +34,8 @@
                         </div>
                     </div>
                     <div class="float-right my-2">
-                                <a class="btn btn-success" href="{{ route('student.create') }}"> Input Student Data</a>
-                            </div>
+                        <a class="btn btn-success" href="{{ route('student.create') }}"> Input Student Data</a>
+                    </div>
                     <div class="card card-dashboard">
                         <div class="card-body text-center">
                             <h4 class="card-title">The List of Student</h4>

@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  @include('dashboard.layout.navbar')
+  @include('layout.navbar')
   <!-- partial -->
   <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_settings-panel.html -->
@@ -83,7 +83,7 @@
     <!-- <br> -->
     @yield('content')
     <!-- <br> -->
-    @include('dashboard.layout.footer')
+    @include('layout.footer')
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>

@@ -8,25 +8,25 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('dashboard.admin.dashboard', [
+        return view('admin.dashboard', [
             "title" => 'Dashboard'
         ]);
     }
     public function books()
     {
-        return view('dashboard.admin.books', [
+        return view('admin.books', [
             "title" => 'Books'
         ]);
     }
-    public function student()
-    {
-        return view('dashboard.admin.student', [
-            "title" => 'Student'
-        ]);
-    }
+    // public function student()
+    // {
+    //     return view('dashboard.admin.student.index', [
+    //         "title" => 'Student'
+    //     ]);
+    // }
     public function transaction()
     {
-        return view('dashboard.admin.transaction', [
+        return view('admin.transaction', [
             "title" => 'Transaction'
         ]);
     }

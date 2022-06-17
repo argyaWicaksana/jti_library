@@ -1,4 +1,4 @@
-@extends('dashboard.layout.main')
+@extends('layout.main')
 
 @section('content')
 <div class="main-panel">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="card card-dashboard">
                         <div class="card-body text-center">
-                            <h4 class="card-title">The List of Books</h4>
+                            <h4 class="card-title">The List of Transaction</h4>
                             <table class="table">
                                 <thead>
                                     <tr>

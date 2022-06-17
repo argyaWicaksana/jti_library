@@ -1,4 +1,4 @@
-@extends('dashboard.layout.main')
+@extends('layout.main')
 
 @section('content')
 <div class="main-panel">

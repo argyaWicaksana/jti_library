@@ -40,7 +40,7 @@ Route::controller(DashboardController::class)->group(function () {
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admindashboard', 'dashboard');
     Route::get('/adminbooks', 'books');
-    Route::get('/adminstudent', 'student');
+    // Route::get('/adminstudent', 'student');
     Route::get('/admintransaction', 'transaction');
 });
 
