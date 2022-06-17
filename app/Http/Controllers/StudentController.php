@@ -97,9 +97,9 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $Student = Student::with('class')->where('id', $id)->first();
+        $Student = Student::where('id', $id)->first();
 
-        return view('dashboard.admin.student.detail', ['Student' => $Student]);
+        return view('admin.student.detail', ['Student' => $Student]);
     }
 
     /**
@@ -110,8 +110,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $Student = Student::with('class')->where('id', $id)->first();
-        return view('student.edit', compact('Student'));
+        $Student = Student::where('id', $id)->first();
+        return view('admin.student.edit', compact('Student'));
     }
 
     /**
