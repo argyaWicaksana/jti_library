@@ -21,28 +21,28 @@
                 <form method="post" action="{{ route('student.store') }}" id="myForm">
                     @csrf
                     <div class="mb-3">
-                        <label for="Name" class="form-label">Name</label>
-                        <input type="Name" class="form-control" id="Name" name="Name">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="name" class="form-control" id="name" name="name">
                     </div>
                     <div class="mb-3">
-                        <label for="Nim" class="form-label">Nim</label>
-                        <input type="Nim" class="form-control" id="Nim" name="Nim">
+                        <label for="nim" class="form-label">Nim</label>
+                        <input type="nim" class="form-control" id="nim" name="nim">
                     </div>
                     <div class="mb-3">
-                        <label for="Profile_picture" class="form-label">Profile picture</label>
-                        <input class="form-control" type="file" id="Profile_picture" name="Profile_picture">
+                        <label for="profile_picture" class="form-label">Profile picture</label>
+                        <input class="form-control" type="file" id="profile_picture" name="profile_picture">
                     </div>
                     <div class="mb-3">
-                        <label for="Ktm_picture" class="form-label">KTM picture</label>
-                        <input class="form-control" type="file" id="Ktm_picture" name="Ktm_picture">
+                        <label for="ktm_picture" class="form-label">KTM picture</label>
+                        <input class="form-control" type="file" id="ktm_picture" name="ktm_picture">
                     </div>
                     <div class="mb-3">
-                        <label for="Username" class="form-label">Username</label>
-                        <input type="Username" class="form-control" id="Username" name="Username">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="username" class="form-control" id="username" name="username">
                     </div>
                     <div class="mb-3">
-                        <label for="Password" class="form-label">Password</label>
-                        <input type="Password" class="form-control" id="Password" name="Password">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

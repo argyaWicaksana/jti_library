@@ -57,20 +57,19 @@
                                 <tbody>
                                     @foreach ($student as $mhs)
                                     <tr>
-                                        <th scope="row">1</th>
                                         <td>{{ $mhs ->name }}</td>
                                         <td>{{ $mhs ->nim }}</td>
                                         <td>
                                             @php
                                             $pathImage = '';
-                                            $student->profile_picture ? ($pathImage = 'storage/' . $student->profile_picture) : ($pathImage = 'picture/empty.png');
+                                            $mhs->profile_picture ? ($pathImage = 'storage/' . $mhs->profile_picture) : ($pathImage = 'picture/empty.png');
                                             @endphp
                                             <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                                         </td>
                                         <td>
                                             @php
                                             $pathImage = '';
-                                            $student->ktm_picture ? ($pathImage = 'storage/' . $student->ktm_picture) : ($pathImage = 'picture/empty.png');
+                                            $mhs->ktm_picture ? ($pathImage = 'storage/' . $mhs->ktm_picture) : ($pathImage = 'picture/empty.png');
                                             @endphp
                                             <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                                         </td>

@@ -21,6 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('ktm_picture');
             $table->string('username');
             $table->string('password');
+            $table->timestamps();
         });
     }
 

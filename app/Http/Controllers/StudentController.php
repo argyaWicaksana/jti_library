@@ -20,7 +20,6 @@ class StudentController extends Controller
         $student = Student::paginate(3);
         // $posts = Student::orderBy('id','asc')->paginate(3);
         return view('admin.student.index', compact('student'));
-        
     }
 
     public function search(Request $request)
@@ -28,9 +27,9 @@ class StudentController extends Controller
         $keyword = $request->search;
 
         $student = Student::where('name', 'like', "%" . $keyword . "%")
-        ->orWhere('nim', 'like', "%" . $keyword . "%")
-        ->orWhere('username', 'like', "%" . $keyword . "%")
-        ->paginate(3);
+            ->orWhere('nim', 'like', "%" . $keyword . "%")
+            ->orWhere('username', 'like', "%" . $keyword . "%")
+            ->paginate(3);
         return view('student.search', compact('student'))
             ->with('i', (request()->input('page', 1) - 1) * 3);
     }
@@ -54,31 +53,40 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Name'=>'required',
-            'Nim'=>'required',
-            'Profile_picture'=>'required',
-            'Ktm_picture'=>'required',
-            'Username'=>'required',
-            'Password'=>'required',
+            'name' => ['required', 'string', 'max:255'],
+            'nim' => ['required', 'string', 'max:20'],
+            'profile_picture' => ['required'],
+            'ktm_picture' => ['required'],
+            'username' => ['required', 'string', 'max:20'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
-        if ($request->file('profile_picture')) {
-            $picture_name = $request->file('profile_picture')->store('profile_picture', 'public');
-        }
-        if ($request->file('ktm_picture')) {
-            $ktmpicture_name = $request->file('ktm_picture')->store('ktm_picture', 'public');
-        }
+        $input = $request->all();
+        if ($request->hasFile('ktm_picture') && $request->hasFile('profile_picture')) {
+            $destination_path_ktm = 'public/images/ktm';
+            $destination_path_profile =  'public/images/profile';
+            $ktm = $request->file('ktm_picture');
+            $profile = $request->file('profile_picture');
+            $ktm_name = $ktm->getClientOriginalName();
+            $profile_name = $profile->getClientOriginalName();
+            $request->file('ktm_picture')->storeAs($destination_path_ktm, $ktm_name);
+            $request->file('profile_picture')->storeAs($destination_path_profile, $profile_name);
 
-        $student = new Student;
-        $student->name = $request->get('Name');
-        $student->nim = $request->get('Nim');
-        $student->profile_picture = $picture_name;
-        $student->ktm_picture = $ktmpicture_name;
-        $student->username = $request->get('Username');
-        $student->password = $request->get('Password');
+            $input['ktm_picture'] = $ktm_name;
+            $input['profile_picture'] = $profile_name;
+        }
+        Student::create($input);
+        // $student = new Student();
+        // $student->name = $request->get('name');
+        // $student->nim = $request->get('nim');
+        // $student->profile_picture = $profile;
+        // $student->ktm_picture = $ktm;
+        // $student->username = $request->get('username');
+        // $student->password = $request->get('password');
+        // $student->save();
 
-        return redirect()->route('admin.student.index')
+
+        return redirect()->route('student.index')
             ->with('success', 'Student succesfully added');
-
     }
 
     /**
@@ -91,7 +99,7 @@ class StudentController extends Controller
     {
         $Student = Student::with('class')->where('id', $id)->first();
 
-        return view('dashboard.admin.student.detail',['Student' => $Student]);
+        return view('dashboard.admin.student.detail', ['Student' => $Student]);
     }
 
     /**
@@ -102,8 +110,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $Student = Student::with('class')->where('id',$id)->first();
-        return view('student.edit',compact('Student'));
+        $Student = Student::with('class')->where('id', $id)->first();
+        return view('student.edit', compact('Student'));
     }
 
     /**
@@ -116,15 +124,15 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Name'=>'required',
-            'Nim'=>'required',
-            'Profile_picture'=>'required',
-            'Ktm_picture'=>'required',
-            'Username'=>'required',
-            'Password'=>'required',
+            'Name' => 'required',
+            'Nim' => 'required',
+            'Profile_picture' => 'required',
+            'Ktm_picture' => 'required',
+            'Username' => 'required',
+            'Password' => 'required',
         ]);
 
-        $student = Student::with('class')->where('id',$id)->first();
+        $student = Student::with('class')->where('id', $id)->first();
 
         if ($student->profile_picture && file_exists(storage_path('app/public/' . $student->profile_picture))) {
             Storage::delete('public/' . $student->profile_picture);
@@ -151,7 +159,7 @@ class StudentController extends Controller
 
         //if the data successfully updated, will return to main page
         return redirect()->route('dashboard.admin.student')
-        ->with('success','Student Successfully Updated');
+            ->with('success', 'Student Successfully Updated');
     }
 
     /**
@@ -169,7 +177,7 @@ class StudentController extends Controller
 
         $student->delete();
         return redirect()->route('dashboard.admin.student')
-        ->with('success','Student Successfully Deleted');
+            ->with('success', 'Student Successfully Deleted');
     }
 
     public function print_student($id)
