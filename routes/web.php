@@ -50,3 +50,4 @@ Auth::routes();
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::resource('student', StudentController::class);
+Route::resource('books', BooksController::class);

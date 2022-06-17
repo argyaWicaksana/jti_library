@@ -14,7 +14,7 @@ class AdminController extends Controller
     }
     public function books()
     {
-        return view('admin.books', [
+        return view('admin.books.index', [
             "title" => 'Books'
         ]);
     }
