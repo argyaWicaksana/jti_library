@@ -62,14 +62,14 @@
                                         <td>
                                             @php
                                             $pathImage = '';
-                                            $mhs->profile_picture ? ($pathImage = 'storage/images/profile/' . $mhs->profile_picture) : ($pathImage = 'picture/empty.png');
+                                            $mhs->profile_picture ? ($pathImage = 'storage/' . $mhs->profile_picture) : ($pathImage = 'picture/empty.png');
                                             @endphp
                                             <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                                         </td>
                                         <td>
                                             @php
                                             $pathImage = '';
-                                            $mhs->ktm_picture ? ($pathImage = 'storage/images/ktm/' . $mhs->ktm_picture) : ($pathImage = 'picture/empty.png');
+                                            $mhs->ktm_picture ? ($pathImage = 'storage/' . $mhs->ktm_picture) : ($pathImage = 'picture/empty.png');
                                             @endphp
                                             <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                                         </td>

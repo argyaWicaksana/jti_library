@@ -30,11 +30,23 @@
                     </div>
                     <div class="mb-3">
                         <label for="profile_picture" class="form-label">Profile picture</label>
-                        <input class="form-control" type="file" id="profile_picture" name="profile_picture">
+                        <img class="profile-preview img-fluid mb-3 col-sm-5">
+                        <input class="form-control" type="file" id="profile_picture" name="profile_picture" onchange="previewImage()">
+                        @error('profile_picture')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="ktm_picture" class="form-label">KTM picture</label>
-                        <input class="form-control" type="file" id="ktm_picture" name="ktm_picture">
+                        <img class="ktm-preview img-fluid mb-3 col-sm-5">
+                        <input class="form-control" type="file" id="ktm_picture" name="ktm_picture" onchange="previewImageKtm()">
+                        @error('profile_picture')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
@@ -51,4 +63,33 @@
 
     </div>
 </div>
+<script>
+    function previewImage() {
+        const image = document.querySelector('#profile_picture');
+        const imgPreview = document.querySelector('.profile-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+
+    function previewImageKtm() {
+        const image = document.querySelector('#ktm_picture');
+        const imgPreview = document.querySelector('.ktm-preview');
+
+        imgPreview.style.display = 'block';
+
+        const oFReader = new FileReader();
+        oFReader.readAsDataURL(image.files[0]);
+
+        oFReader.onload = function(oFREvent) {
+            imgPreview.src = oFREvent.target.result;
+        }
+    }
+</script>
 @endsection

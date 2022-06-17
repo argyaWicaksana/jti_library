@@ -10,7 +10,7 @@
                         <div class="col-md-6 text-center">
                             @php
                             $pathImage = '';
-                            $Student->profile_picture ? ($pathImage = 'storage/images/profile/' . $Student->profile_picture) : ($pathImage = 'picture/empty.png');
+                            $Student->profile_picture ? ($pathImage = 'storage/' . $Student->profile_picture) : ($pathImage = 'picture/empty.png');
                             @endphp
                             <img src="{{ asset('' . $pathImage . '') }}" width="200" alt="">
                         </div>
@@ -23,7 +23,7 @@
                                     <div class="mt-3">
                                         @php
                                         $pathImage = '';
-                                        $Student->ktm_picture ? ($pathImage = 'storage/images/ktm/' . $Student->ktm_picture) : ($pathImage = 'picture/empty.png');
+                                        $Student->ktm_picture ? ($pathImage = 'storage/' . $Student->ktm_picture) : ($pathImage = 'picture/empty.png');
                                         @endphp
                                         <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                                     </div>

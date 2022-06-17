@@ -52,29 +52,46 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'nim' => ['required', 'string', 'max:20'],
+        //     'profile_picture' => ['image'],
+        //     'ktm_picture' => ['image'],
+        //     'username' => ['required', 'string', 'max:20'],
+        //     'password' => ['required', 'string', 'min:8'],
+        // ]);
+        // $input = $request->all();
+        // if ($request->hasFile('ktm_picture') && $request->hasFile('profile_picture')) {
+        //     $destination_path_ktm = 'images/ktm';
+        //     $destination_path_profile =  'images/profil';
+        //     $ktm = $request->file('ktm_picture');
+        //     $profile = $request->file('profile_picture');
+        //     $ktm_name = $ktm->getClientOriginalName();
+        //     $profile_name = $profile->getClientOriginalName();
+        //     $request->file('ktm_picture')->storeAs($destination_path_ktm, $ktm_name);
+        //     $request->file('profile_picture')->storeAs($destination_path_profile, $profile_name);
+
+        //     $input['ktm_picture'] = $ktm_name;
+        //     $input['profile_picture'] = $profile_name;
+        // }
+        $rules = [
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:20'],
-            'profile_picture' => ['required'],
-            'ktm_picture' => ['required'],
+            'profile_picture' => ['image'],
+            'ktm_picture' => ['image'],
             'username' => ['required', 'string', 'max:20'],
             'password' => ['required', 'string', 'min:8'],
-        ]);
-        $input = $request->all();
-        if ($request->hasFile('ktm_picture') && $request->hasFile('profile_picture')) {
-            $destination_path_ktm = 'images/ktm';
-            $destination_path_profile =  'images/profile';
-            $ktm = $request->file('ktm_picture');
-            $profile = $request->file('profile_picture');
-            $ktm_name = $ktm->getClientOriginalName();
-            $profile_name = $profile->getClientOriginalName();
-            $request->file('ktm_picture')->storeAs($destination_path_ktm, $ktm_name);
-            $request->file('profile_picture')->storeAs($destination_path_profile, $profile_name);
-
-            $input['ktm_picture'] = $ktm_name;
-            $input['profile_picture'] = $profile_name;
+        ];
+        
+        $data = $request->validate($rules);
+        
+        
+        if($request->file('profile_picture') && $request->file('ktm_picture')){
+            $data['profile_picture'] = $request->file('profile_picture')->store('images/profil');
+            $data['ktm_picture'] = $request->file('ktm_picture')->store('images/ktm');
         }
-        Student::create($input);
+        
+        Student::create($data);
         // $student = new Student();
         // $student->name = $request->get('name');
         // $student->nim = $request->get('nim');
@@ -121,44 +138,66 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        $request->validate([
-            'Name' => 'required',
-            'Nim' => 'required',
-            'Profile_picture' => 'required',
-            'Ktm_picture' => 'required',
-            'Username' => 'required',
-            'Password' => 'required',
-        ]);
+        // $rules = [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'nim' => ['required', 'string', 'max:20'],
+        //     'profile_picture' => ['image'],
+        //     'ktm_picture' => ['image'],
+        //     'username' => ['required', 'string', 'max:20'],
+        //     'password' => ['required', 'string', 'min:8'],
+        // ];
+        
+        // $data = $request->validate($rules);
+        
+        // if ($student->profile_picture && file_exists(storage_path('app/public/images/profil/' . $student->profile_picture))) {
+        //     Storage::delete('public/images/profil/' . $student->profile_picture);
+        // }
+        
+        // if($request->hasFile('ktm_picture') && $request->hasFile('profile_picture')){
+        //     $ktm = $request->file('ktm_picture');
+        //     $profile = $request->file('profile_picture');
+        //     $ktm_name = $ktm->getClientOriginalName();
+        //     $profile_name = $profile->getClientOriginalName();
+        //     $data['profile_picture'] = $request->file('profile_picture')->storeAs('images/profil/', $profile_name);
+        //     $data['ktm_picture'] = $request->file('ktm_picture')->storeAs('images/ktm/', $ktm_name);
 
-        $student = Student::with('class')->where('id', $id)->first();
+        //     $data['ktm_picture'] = $ktm_name;
+        //     $data['profile_picture'] = $profile_name;
+        // }
+        // Student::where('id', $student->id)
+        // -> update($data);
 
-        if ($student->profile_picture && file_exists(storage_path('app/public/' . $student->profile_picture))) {
-            Storage::delete('public/' . $student->profile_picture);
+        $rules = [
+            'name' => ['required', 'string', 'max:255'],
+            'nim' => ['required', 'string', 'max:20'],
+            'profile_picture' => ['image'],
+            'ktm_picture' => ['image'],
+            'username' => ['required', 'string', 'max:20'],
+            'password' => ['required', 'string', 'min:8'],
+        ];
+        
+        $data = $request->validate($rules);
+        
+        
+        if($request->file('profile_picture')){
+            if($request->oldProfile){
+                Storage::delete($request->oldProfile);
+            }
+            $data['profile_picture'] = $request->file('profile_picture')->store('images/profil');
         }
-
-        if ($request->file('profile_picture')) {
-            $picture_name = $request->file('profile_picture')->store('profile_picture', 'public');
+        if($request->file('ktm_picture')){
+            if($request->oldKtm){
+                Storage::delete($request->oldKtm);
+            }
+            $data['ktm_picture'] = $request->file('ktm_picture')->store('images/ktm');
         }
-
-        if ($student->ktm_picture && file_exists(storage_path('app/public/' . $student->ktm_picture))) {
-            Storage::delete('public/' . $student->ktm_picture);
-        }
-
-        if ($request->file('ktm_picture')) {
-            $ktmpicture_name = $request->file('ktm_picture')->store('ktm_picture', 'public');
-        }
-
-        $student->name = $request->get('Name');
-        $student->nim = $request->get('Nim');
-        $student->profile_picture = $picture_name;
-        $student->ktm_picture = $ktmpicture_name;
-        $student->username = $request->get('Username');
-        $student->password = $request->get('Password');
-
+        Student::where('id', $student->id)
+        -> update($data);
+        
         //if the data successfully updated, will return to main page
-        return redirect()->route('dashboard.admin.student')
+        return redirect()->route('student.index')
             ->with('success', 'Student Successfully Updated');
     }
 
@@ -176,7 +215,7 @@ class StudentController extends Controller
         }
 
         $student->delete();
-        return redirect()->route('dashboard.admin.student')
+        return redirect()->route('student.index')
             ->with('success', 'Student Successfully Deleted');
     }
 
