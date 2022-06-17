@@ -62,8 +62,8 @@ class StudentController extends Controller
         ]);
         $input = $request->all();
         if ($request->hasFile('ktm_picture') && $request->hasFile('profile_picture')) {
-            $destination_path_ktm = 'public/images/ktm';
-            $destination_path_profile =  'public/images/profile';
+            $destination_path_ktm = 'images/ktm';
+            $destination_path_profile =  'images/profile';
             $ktm = $request->file('ktm_picture');
             $profile = $request->file('profile_picture');
             $ktm_name = $ktm->getClientOriginalName();
