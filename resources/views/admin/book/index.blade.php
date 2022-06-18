@@ -27,18 +27,16 @@
                         </ul>
                         <div>
                             <div class="btn-wrapper">
-                                <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
                                 <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                                <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
                             </div>
                         </div>
                     </div>
                     <div class="float-right my-2">
-                        <a class="btn btn-success" href="{{ route('student.create') }}"> Input Student Data</a>
+                        <a class="btn btn-success" href="{{ route('book.create') }}"> Input Book Data</a>
                     </div>
                     <div class="card card-dashboard">
                         <div class="card-body text-center">
-                            <h4 class="card-title">The List of Student</h4>
+                            <h5 class="card-title">The List of Book</h5>
                             @if ($message = Session::get('success'))<div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
@@ -46,38 +44,36 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Nim</th>
-                                        <th scope="col">Profile_picture</th>
-                                        <th scope="col">Ktm_Picture</th>
-                                        <th scope="col">Username</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Photo</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">ISBN/ISSN</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Publisher</th>
                                         <th width="280px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($student as $mhs)
+                                    @foreach ($book as $bk)
                                     <tr>
-                                        <td>{{ $mhs ->name }}</td>
-                                        <td>{{ $mhs ->nim }}</td>
+                                        <td>{{ $bk ->title }}</td>
                                         <td>
                                             @php
                                             $pathImage = '';
-                                            $mhs->profile_picture ? ($pathImage = 'storage/' . $mhs->profile_picture) : ($pathImage = 'picture/empty.png');
+                                            $bk->photo ? ($pathImage = 'storage/' . $bk->photo) : ($pathImage = 'picture/empty.png');
                                             @endphp
                                             <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                                         </td>
+                                        <td>{{ $bk ->status }}</td>
+                                        <td>{{ $bk ->stock }}</td>
+                                        <td>{{ $bk ->isbn_issn }}</td>
+                                        <td>{{ $bk ->type->name }}</td>
+                                        <td>{{ $bk ->publisher->name }}</td>
                                         <td>
-                                            @php
-                                            $pathImage = '';
-                                            $mhs->ktm_picture ? ($pathImage = 'storage/' . $mhs->ktm_picture) : ($pathImage = 'picture/empty.png');
-                                            @endphp
-                                            <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
-                                        </td>
-                                        <td>{{ $mhs ->username }}</td>
-                                        <td>
-                                            <form action="{{ route('student.destroy',['student'=>$mhs->id]) }}" method="POST">
-                                                <a class="btn btn-info" href="{{ route('student.show',$mhs->id) }}">Show</a>
-                                                <a class="btn btn-primary" href="{{ route('student.edit',$mhs->id) }}">Edit</a>
+                                            <form action="{{ route('book.destroy',['book'=>$bk->id]) }}" method="POST">
+                                                <a class="btn btn-info" href="{{ route('book.show',$bk->id) }}">Show</a>
+                                                <a class="btn btn-primary" href="{{ route('book.edit',$bk->id) }}">Edit</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -88,7 +84,7 @@
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-center">
-                                {{ $student->links()}}
+                                {{ $book->links()}}
                             </div>
                         </div>
                     </div>

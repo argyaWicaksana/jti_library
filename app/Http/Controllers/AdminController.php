@@ -12,12 +12,12 @@ class AdminController extends Controller
             "title" => 'Dashboard'
         ]);
     }
-    public function books()
-    {
-        return view('admin.books.index', [
-            "title" => 'Books'
-        ]);
-    }
+    // public function books()
+    // {
+    //     return view('admin.books.index', [
+    //         "title" => 'Books'
+    //     ]);
+    // }
     // public function student()
     // {
     //     return view('dashboard.admin.student.index', [

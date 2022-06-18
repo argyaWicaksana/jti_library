@@ -28,11 +28,11 @@ class Book extends Model
     ];
     
     public function publisher(){
-        return $this->belongsToMany(Publisher::class);
+        return $this->belongsTo(Publisher::class);
     }
 
     public function type(){
-        return $this->belongsToMany(Type::class);
+        return $this->belongsTo(Type::class);
     }
 
     public function borrow_transaction(){

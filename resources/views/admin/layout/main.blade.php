@@ -61,7 +61,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/adminbooks">
+          <a class="nav-link" href="/book">
             <i class="mdi mdi-book menu-icon"></i>
             <span class="menu-title">Books</span>
           </a>

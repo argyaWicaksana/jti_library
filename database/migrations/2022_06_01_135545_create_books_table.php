@@ -31,6 +31,7 @@ class CreateBooksTable extends Migration
             $table->foreign('publisher_id')->references('id')->on('publisher');
             
             $table->string('description');
+            $table->timestamps();
         });
 
     }

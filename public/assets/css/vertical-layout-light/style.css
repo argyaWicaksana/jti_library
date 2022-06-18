@@ -10401,6 +10401,7 @@ progress {
   }
 }
 
+
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
@@ -22815,7 +22816,7 @@ code {
 .card .card-title {
   color: #3ac5bd;
   margin-bottom: 1.2rem;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bolder;
 }
 
