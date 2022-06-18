@@ -63,12 +63,6 @@ class BookController extends Controller
             $data['photo'] = $request->file('photo')->store('images/photo');
         }
         
-        // $book = new Book;
-        // $type = new Type;
-        // $type->id = $request->get('type');
-
-        // $book->class()->associate($type);
-
         Book::create($data);
 
         // return redirect()->route('student.index')
@@ -115,7 +109,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $Book = Book::where('id', $id)->first();
+
+        return view('admin.book.detail', ['Book' => $Book]);
     }
 
     /**
@@ -126,7 +122,10 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Book = Book::where('id', $id)->first();
+        $type = Type::all();
+        $publisher = Publisher::all();//get data from class table
+        return view('admin.book.edit', compact('type','publisher','Book'));
     }
 
     /**
@@ -136,9 +135,35 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
-        //
+        $rules = [
+            'title' => ['required', 'string', 'max:255'],
+            'photo' => ['image'],
+            'year' => ['required', 'date'],
+            'status' => ['required', 'string', 'max:100'],
+            'stock' => ['required'],
+            'author' => ['required', 'string', 'max:255'],
+            'isbn_issn' => ['required', 'string', 'max:20'],
+            'type_id' => ['required'],
+            'publisher_id' => ['required'],
+            'description' => ['required', 'string'],
+        ];
+        
+        $data = $request->validate($rules);
+
+        if($request->file('photo')){
+            if($request->oldProfile){
+                Storage::delete($request->oldProfile);
+            }
+            $data['photo'] = $request->file('photo')->store('images/photo');
+        }
+
+        Book::where('id', $book->id)
+        -> update($data);
+
+        return redirect()->route('book.index')
+            ->with('success', 'Book Successfully Updated');
     }
 
     /**
@@ -149,6 +174,15 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = Book::find($id);
+        if ($book->photo && file_exists(storage_path('app/public/' . $book->photo))) {
+            Storage::delete('images/photo/' . $book->photo);
+        }
+
+        $book->borrow_transaction()->detach();
+
+        $book->delete();
+        return redirect()->route('book.index')
+        ->with('success','Book Successfully Deleted');
     }
 }
