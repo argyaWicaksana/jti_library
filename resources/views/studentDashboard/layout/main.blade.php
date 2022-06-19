@@ -41,12 +41,12 @@
 </head>
 
 <body>
-    @include('dashboard.student.layout.header')
+    @include('studentDashboard.layout.header')
     <hr color="black" size="1rem">
     <!-- <br> -->
     @yield('content')
     <!-- <br> -->
-    @include('dashboard.student.layout.footer')
+    @include('studentDashboard.layout.footer')
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>

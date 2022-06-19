@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index');
+    // Route::get('/', 'index');
     Route::get('/about', 'about');
     Route::get('/contactus', 'contactus');
     Route::get('/login', 'login');
@@ -50,3 +50,4 @@ Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
+Route::get('index', [CatalogController::class,'index']);
