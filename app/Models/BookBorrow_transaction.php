@@ -16,9 +16,5 @@ class BookBorrow_transaction extends Model
         'borrow_transaction_id',
         'number_book_borrow',
     ];
-
-    public function book(){
-        return $this->belongsToMany(Book::class,'book_borrow_transaction','borrow_transaction_id','book_id')->withPivot('number_book_borrow');
-    }
     
 }

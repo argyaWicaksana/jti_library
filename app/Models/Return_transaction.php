@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PDO;
 
 class Return_transaction extends Model
 {
@@ -20,7 +21,5 @@ class Return_transaction extends Model
     public function borrow_transaction(){
         return $this->hasOne(Borrow_transaction::class);
     }
-
-    
 
 }
