@@ -23,14 +23,12 @@ class CreateBooksTable extends Migration
             $table->integer('stock');
             $table->string('author');
             $table->string('isbn_issn');
-
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type');
-
             $table->unsignedBigInteger('publisher_id');
             $table->foreign('publisher_id')->references('id')->on('publisher');
-            
-            $table->string('description')->nullable();
+            $table->string('description');
+            $table->timestamps();
         });
 
     }

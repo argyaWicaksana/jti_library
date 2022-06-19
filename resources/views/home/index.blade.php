@@ -1,6 +1,7 @@
 @extends('home.layout.main')
 
 @section('content')
+@foreach($Book as $bk)
 
 <section id="home">
 
@@ -56,14 +57,20 @@
       <div class="row" data-aos="fade-left">
         <div class="col-lg-2 col-md-6">
           <div class="member" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pic"><img src="assets/img/book/book1.jpg" class="img-fluid" alt=""></div>
+            <div class="pic">
+              @php
+              $pathImage = '';
+              $bk->photo ? ($pathImage = 'storage/' . $bk->photo) : ($pathImage = 'picture/empty.png');
+              @endphp
+              <img src="{{ asset('' . $pathImage . '') }}" class="img-fluid" alt="">
+            </div>
             <div class="member-info">
-              <h4>Hujan</h4>
-              <span>Tere Liye</span>
+              <h4>{{ $bk->title}}</h4>
+              <span>{{ $bk->author }}</span>
               <div class="social">
                 <i class="bi bi-book"></i>
-                <i>:6 available</i>
-                <a href=""><i class="bi bi-file-text-fill"></i></a>
+                <i>:{{ $bk->stock }} available</i>
+                <a href="admin.book.detail"><i class="bi bi-file-text-fill"></i></a>
               </div>
             </div>
           </div>
@@ -517,10 +524,9 @@
         </div>
 
       </div>
-
     </div>
   </section><!-- End Team Section -->
 
   </main><!-- End #main -->
-
+  @endforeach
   @endsection

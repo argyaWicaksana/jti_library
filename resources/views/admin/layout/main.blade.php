@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>JTI E-Library</title>
+  <title>@yield('title')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/feather/feather.css">
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  @include('dashboard.layout.navbar')
+  @include('layout.navbar')
   <!-- partial -->
   <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_settings-panel.html -->
@@ -55,25 +55,25 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/admindashboard">
             <i class="mdi mdi-home menu-icon"></i>
             <span class="menu-title">Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/book">
             <i class="mdi mdi-book menu-icon"></i>
             <span class="menu-title">Books</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/student">
             <i class="mdi mdi-account menu-icon"></i>
             <span class="menu-title">Student</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="admintransaction">
             <i class="mdi mdi-file-document menu-icon"></i>
             <span class="menu-title">Transaction</span>
           </a>
@@ -83,7 +83,7 @@
     <!-- <br> -->
     @yield('content')
     <!-- <br> -->
-    @include('dashboard.layout.footer')
+    @include('layout.footer')
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>

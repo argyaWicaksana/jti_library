@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
-    protected $table='name'; 
+    protected $table='type'; 
     protected $primaryKey = 'id'; 
   
     protected $fillable = [
@@ -17,6 +17,6 @@ class Type extends Model
     ];
     
     public function book(){
-        return $this->hasOne(Book::class);
+        return $this->hasMany(Book::class);
     }
 }

@@ -127,13 +127,16 @@ h6 {
   transition: all 0.5s;
   background: rgba(1, 4, 136, 0.9);
 }
+
 #header.header-transparent {
   background: transparent;
 }
+
 #header.header-scrolled {
   background: rgba(1, 4, 136, 0.9);
   height: 60px;
 }
+
 #header .logo h1 {
   font-size: 28px;
   margin: 0;
@@ -141,10 +144,13 @@ h6 {
   line-height: 1;
   font-weight: 700;
 }
-#header .logo h1 a, #header .logo h1 a:hover {
+
+#header .logo h1 a,
+#header .logo h1 a:hover {
   color: #fff;
   text-decoration: none;
 }
+
 #header .logo img {
   padding: 0;
   margin: 0;
@@ -160,6 +166,7 @@ h6 {
 .navbar {
   padding: 0;
 }
+
 .navbar ul {
   margin: 0;
   padding: 0;
@@ -167,10 +174,13 @@ h6 {
   list-style: none;
   align-items: center;
 }
+
 .navbar li {
   position: relative;
 }
-.navbar a, .navbar a:focus {
+
+.navbar a,
+.navbar a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -182,12 +192,15 @@ h6 {
   white-space: nowrap;
   transition: 0.3s;
 }
-.navbar a i, .navbar a:focus i {
+
+.navbar a i,
+.navbar a:focus i {
   font-size: 12px;
   line-height: 0;
   margin-left: 5px;
 }
-.navbar > ul > li > a:before {
+
+.navbar>ul>li>a:before {
   content: "";
   position: absolute;
   width: 0;
@@ -199,13 +212,21 @@ h6 {
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
 }
-.navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+
+.navbar a:hover:before,
+.navbar li:hover>a:before,
+.navbar .active:before {
   visibility: visible;
   width: 25px;
 }
-.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
   color: #fff;
 }
+
 .navbar .dropdown ul {
   display: block;
   position: absolute;
@@ -221,9 +242,11 @@ h6 {
   transition: 0.3s;
   border-radius: 4px;
 }
+
 .navbar .dropdown ul li {
   min-width: 200px;
 }
+
 .navbar .dropdown ul a {
   padding: 10px 20px;
   font-size: 14px;
@@ -231,33 +254,42 @@ h6 {
   text-transform: none;
   color: #01036f;
 }
+
 .navbar .dropdown ul a i {
   font-size: 12px;
 }
-.navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
   color: #1acc8d;
 }
-.navbar .dropdown:hover > ul {
+
+.navbar .dropdown:hover>ul {
   opacity: 1;
   top: 100%;
   visibility: visible;
 }
+
 .navbar .dropdown .dropdown ul {
   top: 0;
   left: calc(100% - 30px);
   visibility: hidden;
 }
-.navbar .dropdown .dropdown:hover > ul {
+
+.navbar .dropdown .dropdown:hover>ul {
   opacity: 1;
   top: 0;
   left: 100%;
   visibility: visible;
 }
+
 @media (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
     left: -90%;
   }
-  .navbar .dropdown .dropdown:hover > ul {
+
+  .navbar .dropdown .dropdown:hover>ul {
     left: -100%;
   }
 }
@@ -350,9 +382,9 @@ h6 {
   visibility: visible;
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-} */
+}
 
-.navbar-mobile .dropdown ul li,
+*/ .navbar-mobile .dropdown ul li,
 .navbar-mobile .dropdown .dropdown ul li {
   min-width: 200px;
 }
@@ -389,6 +421,7 @@ h6 {
   background: url("../img/home-bg.jpg");
   position: relative;
   padding: 120px 0 0 0;
+  margin-top: 50px;
 }
 
 #home:before {
@@ -645,6 +678,87 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Account
+--------------------------------------------------------------*/
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+.profile {
+  min-height: 355px;
+  display: inline-block;
+}
+
+figcaption.ratings {
+  margin-top: 20px;
+}
+
+figcaption.ratings a {
+  color: #f1c40f;
+  font-size: 11px;
+}
+
+figcaption.ratings a:hover {
+  color: #f39c12;
+  text-decoration: none;
+}
+
+.divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.emphasis {
+  border-top: 4px solid transparent;
+}
+
+.emphasis:hover {
+  border-top: 4px solid #1abc9c;
+}
+
+.emphasis h2 {
+  margin-bottom: 0;
+}
+
+span.tags {
+  background: #1abc9c;
+  border-radius: 2px;
+  color: #f5f5f5;
+  font-weight: bold;
+  padding: 2px 4px;
+}
+
+.dropdown-menu {
+  background-color: #34495e;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  width: 250px;
+  margin-left: -125px;
+  left: 50%;
+}
+
+.dropdown-menu .divider {
+  background: none;
+}
+
+.dropdown-menu>li>a {
+  color: #f5f5f5;
+}
+
+.dropup .dropdown-menu {
+  margin-bottom: 10px;
+}
+
+.dropup .dropdown-menu:before {
+  content: "";
+  border-top: 10px solid #34495e;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -10px;
+  z-index: 10;
+}
+
+/*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
@@ -709,22 +823,22 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.row{
+.row {
   padding-bottom: 50px;
   padding-top: 0%;
 }
 
-.container-search{
+.container-search {
   padding-top: 40px;
   padding-right: 70px;
   padding-left: 70px;
 }
 
-.btn:hover{
-  color:#fff;
+.btn:hover {
+  color: #fff;
 }
 
-.input-text:focus{
+.input-text:focus {
   box-shadow: 0px 0px 0px;
   border-color: rgba(2, 5, 161, 0.91);
   outline: 0px;
@@ -733,6 +847,7 @@ section {
 .form-control {
   border: 1px solid rgba(2, 5, 161, 0.91);
 }
+
 .about {
   padding: 40px 0 0 0;
 }
@@ -744,7 +859,7 @@ section {
   margin-bottom: 15px;
 }
 
-.btn-outline-purple{
+.btn-outline-purple {
   color: rgba(255, 255, 255, 0.91);
   background-color: rgba(2, 5, 161, 0.91);
   outline-color: rgba(2, 5, 161, 0.91);
@@ -1579,15 +1694,18 @@ section {
   color: #fff;
   font-size: 14px;
 }
+
 #footer .footer-top {
   padding: 60px 0 30px 0;
 }
+
 #footer .footer-top .footer-info {
   /* margin-bottom: 15px; */
   color: #fff;
   text-align: center;
-  
+
 }
+
 #footer .footer-top .footer-info h3 {
   font-size: 40px;
   margin: 0 0 20px 0;
@@ -1595,12 +1713,14 @@ section {
   line-height: 1;
   font-weight: 700;
 }
+
 #footer .footer-top .footer-info p {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Montserrat", sans-serif;
 }
+
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
@@ -1614,11 +1734,13 @@ section {
   height: 36px;
   transition: 0.3s;
 }
+
 #footer .footer-top .social-links a:hover {
   background: #1acc8d;
   color: #fff;
   text-decoration: none;
 }
+
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: 600;
@@ -1626,6 +1748,7 @@ section {
   position: relative;
   padding-bottom: 12px;
 }
+
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
   text-align: center;
@@ -1636,29 +1759,35 @@ section {
   padding: 0;
   margin: 0;
 }
+
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
   color: #61ebba;
   font-size: 18px;
   line-height: 1;
 }
+
 #footer .footer-top .footer-links ul li {
   padding: 10px 0;
   display: flex;
   align-items: center;
 }
+
 #footer .footer-top .footer-links ul li:first-child {
   padding-top: 0;
 }
+
 #footer .footer-top .footer-links ul a {
   color: #fff;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
+
 #footer .footer-top .footer-links ul a:hover {
   color: #4be8b0;
 }
+
 #footer .footer-top .footer-newsletter form {
   margin-top: 30px;
   background: #fff;
@@ -1666,11 +1795,13 @@ section {
   position: relative;
   border-radius: 50px;
 }
+
 #footer .footer-top .footer-newsletter form input[type=email] {
   border: 0;
   padding: 4px;
   width: calc(100% - 110px);
 }
+
 #footer .footer-top .footer-newsletter form input[type=submit] {
   position: absolute;
   top: 0;
@@ -1685,14 +1816,17 @@ section {
   transition: 0.3s;
   border-radius: 50px;
 }
+
 #footer .footer-top .footer-newsletter form input[type=submit]:hover {
   background: #149f6e;
 }
+
 #footer .copyright {
   border-top: 1px solid #010479;
   text-align: center;
   padding-top: 30px;
 }
+
 @media (max-width: 575px) {
   #footer .footer-top .footer-info {
     margin: -20px 0 30px 0;
@@ -1700,14 +1834,13 @@ section {
 }
 
 /* login */
-.card-header{
-  background-color:#0205a1;
+.card-header {
+  background-color: #0205a1;
   color: #fff;
   font-weight: bold;
 }
 
-.btn-001{
+.btn-001 {
   background-color: #0205a1;
   color: #fff;
 }
-
