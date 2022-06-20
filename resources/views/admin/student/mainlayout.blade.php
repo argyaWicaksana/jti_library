@@ -1,36 +1,3 @@
-<!-- @extends('layout.main')
-
-@section('content')
-<div class="main-panel">
-    <div class="content-wrapper">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="home-tab">
-                    <div class="d-sm-flex align-items-center justify-content-between border-bottom">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
-                            </li>
-                            <li class="nav-item">
-                                <form class="search-form" action="#">
-                                    <i class="icon-search"></i>
-                                    <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-                                </form>
-                            </li>
-
-                        </ul>
-                        <div>
-                            <div class="btn-wrapper">
-                                <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                            </div>
-                        </div>
-                    </div>
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-        
-        @endsection -->
         <!doctype html>
         <html lang="en">
 

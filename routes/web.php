@@ -7,8 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
+// use App\Http\Controllers\Auth\RegisterController;
+// use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminTypeController;
 use App\Http\Controllers\Controller;
@@ -29,7 +29,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/about', 'about');
     Route::get('/contactus', 'contactus');
-     Route::get('/login', 'login');
+    Route::get('/login', 'login');
     Route::get('/register', 'register');
 });
 
@@ -46,13 +46,13 @@ Route::controller(AdminController::class)->group(function () {
 });
 
 Auth::routes();
-Route::post('/login', [LoginController::class, 'authenticate']);
+// Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'create']);
+// Route::get('/register', [RegisterController::class, 'index'])->name('register');
+// Route::post('/register', [RegisterController::class, 'create']);
 
-Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::get('login', [LoginController::class, 'index'])->name('login');
+// // Route::get('register', [RegisterController::class, 'index'])->name('register');
+// Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
 // Route::get('index', [CatalogController::class,'index']);
@@ -65,7 +65,7 @@ Route::resource('book', BookController::class);
 // Route::resource('/admindashboard',)->middleware('admin');
 
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
-Route::get('/student/print_pdf', [StudentController::class,'print_pdf'])->name('print_pdf');
+Route::get('/student/print_student', [StudentController::class,'print_student'])->name('print_student');
 // Route::get('/',function(){
 //     Auth::logout();
 //     return redirect('/');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = Student::paginate(3);
+        $student = User::paginate(3);
         // $posts = Student::orderBy('id','asc')->paginate(3);
         return view('admin.student.index', compact('student'));
     }
@@ -26,7 +26,7 @@ class StudentController extends Controller
     {
         $keyword = $request->search;
 
-        $student = Student::where('name', 'like', "%" . $keyword . "%")
+        $student = User::where('name', 'like', "%" . $keyword . "%")
             ->orWhere('nim', 'like', "%" . $keyword . "%")
             ->orWhere('username', 'like', "%" . $keyword . "%")
             ->paginate(3);
@@ -91,7 +91,7 @@ class StudentController extends Controller
             $data['ktm_picture'] = $request->file('ktm_picture')->store('images/ktm');
         }
         
-        Student::create($data);
+        User::create($data);
         // $student = new Student();
         // $student->name = $request->get('name');
         // $student->nim = $request->get('nim');
@@ -114,7 +114,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $Student = Student::where('id', $id)->first();
+        $Student = User::where('id', $id)->first();
 
         return view('admin.student.detail', ['Student' => $Student]);
     }
@@ -127,7 +127,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $Student = Student::where('id', $id)->first();
+        $Student = User::where('id', $id)->first();
         return view('admin.student.edit', compact('Student'));
     }
 
@@ -138,7 +138,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, User $student)
     {
         // $rules = [
         //     'name' => ['required', 'string', 'max:255'],
@@ -193,7 +193,7 @@ class StudentController extends Controller
             }
             $data['ktm_picture'] = $request->file('ktm_picture')->store('images/ktm');
         }
-        Student::where('id', $student->id)
+        User::where('id', $student->id)
         -> update($data);
         
         //if the data successfully updated, will return to main page
@@ -209,7 +209,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $student = Student::find($id);
+        $student = User::find($id);
         if ($student->profile_picture && file_exists(storage_path('app/public/' . $student->profile_picture))) {
             Storage::delete('public/' . $student->profile_picture);
         }
@@ -219,11 +219,11 @@ class StudentController extends Controller
             ->with('success', 'Student Successfully Deleted');
     }
 
-    // public function print_student($id)
-    // {
-    //     $student = Student::findOrFail($id);
+    public function print_student($id)
+    {
+        $student = User::findOrFail($id);
 
-    //     $pdf = PDF::loadview('student.print_student', ['student' => $student]);
-    //     return $pdf->stream();
-    // }
+        $pdf = PDF::loadview('admin.student.print_student', ['student' => $student]);
+        return $pdf->stream();
+    }
 }

@@ -12,7 +12,7 @@ class CatalogController extends Controller
     public function index()
     {
         return view('home.index', [
-            "title" => "pasta",
+            "title" => "Book",
             "Book" => Book::all()
         ]);
     }
