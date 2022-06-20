@@ -26,7 +26,7 @@ use App\Http\Controllers\Controller;
 Auth::routes();
 
 Route::controller(HomeController::class)->group(function () {
-    // Route::get('/', 'index');
+    Route::get('/', 'index');
     Route::get('/about', 'about');
     Route::get('/contactus', 'contactus');
      Route::get('/login', 'login');
@@ -55,14 +55,14 @@ Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
-Route::get('index', [CatalogController::class,'index']);
+// Route::get('index', [CatalogController::class,'index']);
 
 
-Route::get('/admindashboard', function () {
-    return view ('dashboard.admin.dashboard');
-})->middleware('admin');
+// Route::get('/admindashboard', function () {
+//     return view ('dashboard.admin.dashboard');
+// })->middleware('admin');
 
-Route::resource('/admindashboard',)->middleware('admin');
+// Route::resource('/admindashboard',)->middleware('admin');
 
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
 Route::get('/student/print_pdf', [StudentController::class,'print_pdf'])->name('print_pdf');

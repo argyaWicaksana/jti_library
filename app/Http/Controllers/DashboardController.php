@@ -15,14 +15,14 @@ class DashboardController extends Controller
 
     public function cart()
     {
-        return view('dashboard.student.cart', [
+        return view('studentDashboard.cart', [
             "title" => 'Cart'
         ]);
     }
 
     public function account()
     {
-        return view('dashboard.student.account', [
+        return view('studentDashboard.account', [
             "title" => 'Account'
         ]);
     }

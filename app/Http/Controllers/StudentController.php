@@ -6,7 +6,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Storage;
-use PDF;
+// use PDF;
 
 class StudentController extends Controller
 {
@@ -219,11 +219,11 @@ class StudentController extends Controller
             ->with('success', 'Student Successfully Deleted');
     }
 
-    public function print_student($id)
-    {
-        $student = Student::findOrFail($id);
+    // public function print_student($id)
+    // {
+    //     $student = Student::findOrFail($id);
 
-        $pdf = PDF::loadview('student.print_student', ['student' => $student]);
-        return $pdf->stream();
-    }
+    //     $pdf = PDF::loadview('student.print_student', ['student' => $student]);
+    //     return $pdf->stream();
+    // }
 }
