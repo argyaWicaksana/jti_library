@@ -12,6 +12,7 @@ use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminTypeController;
 use App\Http\Controllers\Controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,7 +66,7 @@ Route::resource('book', BookController::class);
 // Route::resource('/admindashboard',)->middleware('admin');
 
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
-Route::get('/student/print_student', [StudentController::class,'print_student'])->name('print_student');
+Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
 // Route::get('/',function(){
 //     Auth::logout();
 //     return redirect('/');

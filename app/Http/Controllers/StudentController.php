@@ -6,7 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Storage;
-// use PDF;
+use Illuminate\Support\Facades\App;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -84,7 +85,6 @@ class StudentController extends Controller
         ];
         
         $data = $request->validate($rules);
-        
         
         if($request->file('profile_picture') && $request->file('ktm_picture')){
             $data['profile_picture'] = $request->file('profile_picture')->store('images/profil');
@@ -219,11 +219,13 @@ class StudentController extends Controller
             ->with('success', 'Student Successfully Deleted');
     }
 
-    public function print_student($id)
-    {
-        $student = User::findOrFail($id);
-
-        $pdf = PDF::loadview('admin.student.print_student', ['student' => $student]);
-        return $pdf->stream();
+    public function print_student()
+    {  
+        //$student = User::where('id', $id)->first();
+       
+        $student = User::all();
+        // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
+        $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
+        return $pdf->stream('student.pdf');
     }
 }

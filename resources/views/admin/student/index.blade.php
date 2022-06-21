@@ -26,9 +26,7 @@
 
                         </ul>
                         <div>
-                            <div class="btn-wrapper">
-                                <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
-                            </div>
+                            <a class="btn btn-success mt-3" href="{{ route('print_student') }}" target="_blank">Print</a>
                         </div>
                     </div>
                     <div class="float-right my-2">

@@ -34,7 +34,7 @@
                 </div>
                 <div class="text-center mt-3 mb-3">
                     <a class="btn btn-success mt-3" href="{{ route('student.index') }}">Back</a>
-                    <a class="btn btn-success mt-3" href="{{ route('print_student', $Student->id) }}">Print</a>
+                    <a class="btn btn-success mt-3" href="{{ route('/print_student', $Student->id) }}" target="_blank">Print</a>
                 </div>
             </div>
 
