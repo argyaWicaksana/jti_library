@@ -47,6 +47,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        return view('home.register',[
+            'title' => 'Register'
+        ]);
+    }
+
     public function index()
     {
         return view('home.register',[
@@ -89,6 +96,7 @@ class RegisterController extends Controller
             $destination_path_profile =  'public/images/profile';
             $ktm = $request->file('ktm_picture');
             $profile = $request->file('profile_picture');
+          
             $ktm_name = $ktm->getClientOriginalName();
             $profile_name = $profile->getClientOriginalName();
             $path_ktm = $request->file('ktm_picture')->storeAs($destination_path_ktm,$ktm_name);

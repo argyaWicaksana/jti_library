@@ -7,11 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
-// use App\Http\Controllers\Auth\RegisterController;
-// use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminTypeController;
 use App\Http\Controllers\Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,40 +48,18 @@ Route::controller(AdminController::class)->group(function () {
 });
 
 Auth::routes();
-// Route::post('/login', [LoginController::class, 'authenticate']);
+ //Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+ Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+ 
 
-// Route::get('/register', [RegisterController::class, 'index'])->name('register');
-// Route::post('/register', [RegisterController::class, 'create']);
+ //Route::get('/register', [RegisterController::class, 'index'])->name('register');
+ Route::post('/register', [RegisterController::class, 'create'])->name('register');
 
-// // Route::get('register', [RegisterController::class, 'index'])->name('register');
-// Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+ 
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
-// Route::get('index', [CatalogController::class,'index']);
-
-
-// Route::get('/admindashboard', function () {
-//     return view ('dashboard.admin.dashboard');
-// })->middleware('admin');
-
-// Route::resource('/admindashboard',)->middleware('admin');
 
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
 Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
-// Route::get('/',function(){
-//     Auth::logout();
-//     return redirect('/');
-// });
-
-// Route::group(['middleware' =>'auth','is_admin:1'], function(){
-//    Route::get('/admin-page','DashboardUser@adminpage')->name('admin-page');
-// });
-
-// Route::group(['middleware' =>'auth','is_admin:0,1'], function(){
-//     Route::get('/home','DashboardUser@index');
-//  });
-
-//  Route::group(['middleware' =>'auth','is_admin:0'], function(){
-//     Route::get('/student-page','DashboardUser@studentpage')->name('student-page');
-//  });
- 
+Route::get('print_books', [BookController::class, 'print_books'])->name('print_books');

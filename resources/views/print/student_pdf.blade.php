@@ -15,7 +15,7 @@
     </center>
     <table class='table table-bordered'>
         <thead>
-            <tr>z
+            <tr>
             <th>Name</th>
             <th>NIM</th>
             </tr>

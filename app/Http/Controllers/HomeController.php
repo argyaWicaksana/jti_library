@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function login()
     {
         return view('home.login',[
-            "title" => 'Login'
+            'title' => 'Login'
         ]);
     }
 
@@ -37,5 +37,11 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+    public function register()
+    {
+        return view('home.register',[
+            'title' => 'Register'
+        ]);
     }
 }
