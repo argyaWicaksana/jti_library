@@ -190,4 +190,13 @@ class BookController extends Controller
         return redirect()->route('book.index')
         ->with('success','Book Successfully Deleted');
     }
+    public function print_books()
+    {  
+        //$student = User::where('id', $id)->first();
+       
+        $books = Book::all();
+        // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
+        $pdf = PDF::loadview('print.books_pdf', ['books'=> $books]);
+        return $pdf->stream('books.pdf');
+    }
 }

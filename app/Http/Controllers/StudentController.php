@@ -228,4 +228,5 @@ class StudentController extends Controller
         $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
         return $pdf->stream('student.pdf');
     }
+    
 }
