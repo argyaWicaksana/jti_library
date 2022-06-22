@@ -687,6 +687,10 @@ section {
   display: inline-block;
 }
 
+.account{
+  margin-left: 50px;
+}
+
 figcaption.ratings {
   margin-top: 20px;
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Type;
 use App\Models\Publisher;
+// use App\Models\Catalog;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Storage;
@@ -33,6 +34,7 @@ class BookController extends Controller
     {
         $type = Type::all();
         $publisher = Publisher::all();//get data from class table
+        // $catalog = Catalog::all();
         return view('admin.book.create', compact('type','publisher'));
     }
 
@@ -54,6 +56,7 @@ class BookController extends Controller
             'isbn_issn' => ['required', 'string', 'max:20'],
             'type_id' => ['required'],
             'publisher_id' => ['required'],
+            // 'catalog_id' => ['required'],
             'description' => ['required', 'string'],
         ];
         
@@ -125,6 +128,7 @@ class BookController extends Controller
         $Book = Book::where('id', $id)->first();
         $type = Type::all();
         $publisher = Publisher::all();//get data from class table
+        // $catalog = Catalog::all();
         return view('admin.book.edit', compact('type','publisher','Book'));
     }
 
@@ -147,6 +151,7 @@ class BookController extends Controller
             'isbn_issn' => ['required', 'string', 'max:20'],
             'type_id' => ['required'],
             'publisher_id' => ['required'],
+            // 'catalog_id' => ['required'],
             'description' => ['required', 'string'],
         ];
         

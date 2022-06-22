@@ -12,7 +12,6 @@ class Publisher extends Model
     protected $primaryKey = 'id'; 
   
     protected $fillable = [
-        //id
        'name',
     ];
 

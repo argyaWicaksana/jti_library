@@ -116,7 +116,7 @@ class StudentController extends Controller
     {
         $Student = User::where('id', $id)->first();
 
-        return view('admin.student.detail', ['Student' => $Student]);
+        return view('admin.student.detail', compact('Student'));
     }
 
     /**
