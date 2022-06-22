@@ -11,6 +11,7 @@ use App\Http\Controllers\BookController;
 // use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminTypeController;
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Auth::routes();
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
+    
     Route::get('/about', 'about');
     Route::get('/contactus', 'contactus');
     Route::get('/login', 'login');
@@ -55,6 +57,7 @@ Auth::routes();
 // Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
+Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail');
 // Route::get('index', [CatalogController::class,'index']);
 
 
@@ -64,8 +67,8 @@ Route::resource('book', BookController::class);
 
 // Route::resource('/admindashboard',)->middleware('admin');
 
-Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
-Route::get('/student/print_student', [StudentController::class,'print_student'])->name('print_student');
+Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
+Route::get('/student/print_student', [StudentController::class, 'print_student'])->name('print_student');
 // Route::get('/',function(){
 //     Auth::logout();
 //     return redirect('/');
@@ -82,4 +85,3 @@ Route::get('/student/print_student', [StudentController::class,'print_student'])
 //  Route::group(['middleware' =>'auth','is_admin:0'], function(){
 //     Route::get('/student-page','DashboardUser@studentpage')->name('student-page');
 //  });
- 
