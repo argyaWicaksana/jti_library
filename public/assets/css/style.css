@@ -167,6 +167,9 @@ h6 {
   padding: 0;
 }
 
+.navbar-detail{
+  padding: 30px;
+}
 .navbar ul {
   margin: 0;
   padding: 0;

@@ -68,13 +68,13 @@ Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail'
 
 // Route::resource('/admindashboard',)->middleware('admin');
 
-<<<<<<< HEAD
+
 Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
-Route::get('/student/print_student', [StudentController::class, 'print_student'])->name('print_student');
-=======
+// Route::get('/student/print_student', [StudentController::class, 'print_student'])->name('print_student');
+
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
 Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
->>>>>>> 339b6cf2699367c1bbbb0fe02eea76017671b424
+
 // Route::get('/',function(){
 //     Auth::logout();
 //     return redirect('/');
