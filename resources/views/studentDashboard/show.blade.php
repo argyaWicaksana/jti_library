@@ -92,7 +92,7 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-1 mt-5">
-                <a href="/">
+                <a href="/studentdashboard">
                     <i class="bi bi-arrow-left" style="font-size: 3rem;"></i>
                 </a>
             </div>
