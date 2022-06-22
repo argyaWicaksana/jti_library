@@ -11,8 +11,6 @@ class HomeController extends Controller
     public function index()
     {
         $catalog = Book::all();
-        // $posts = book::orderBy('id','asc')->paginate(3);
-        // return view('home.index', compact('catalog'));
         return view('home.index',[
             "title" => 'Home',
             "catalog" => $catalog

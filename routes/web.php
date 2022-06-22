@@ -60,7 +60,7 @@ Auth::routes();
  
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
-Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');
+Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail');
 
 
 Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
