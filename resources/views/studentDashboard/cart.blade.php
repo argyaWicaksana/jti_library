@@ -48,10 +48,10 @@
         </li>
       </ul>
     </div>
-
-    <form method="POST" action="{{ route('studentDashboard.setcheckout', $cart[0]->id) }}" id="myForm" enctype="multipart/form-data">
+    @foreach( $cart as $cr)
+    <form method="POST" action="{{ route('studentDashboard.update', $cr->id) }}" id="myForm" enctype="multipart/form-data">
       @csrf
-      @method('PUT')
+      @method('POSt')
       <div class="row">
         <div class="col-md-5 mb-3">
           <label for="date_borrow">Date Booking</label>
@@ -78,8 +78,9 @@
         <label class="custom-control-label" for="same-address">I agree of JTI E-Library Term of Service</label>
       </div>
       <hr class="mb-4">
-      <a href="{{ route('studentDashboard.checkout') }}" class="btn btn-primary">Checkout</a>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    @endforeach
   </div>
 </div>
 </div>
