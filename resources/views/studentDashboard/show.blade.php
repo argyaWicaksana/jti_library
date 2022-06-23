@@ -76,7 +76,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">JTI E-Library</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@
     </nav>
 
     <!-- Begin page content -->
-    <main role="main" class="container">
+    <main role="main" class="container mt-5">
         <div class="row">
             <div class="col-md-1 mt-5">
                 <a href="/studentdashboard">
