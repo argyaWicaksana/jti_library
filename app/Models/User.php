@@ -49,7 +49,11 @@ class User extends Authenticatable
     ];
 
     public function borrow_transaction(){
-        return $this->belongsToMany(Borrow_transaction::class,'book_borrow_transaction','borrow_transaction_id','user_id');
+        return $this->hasMany(Borrow_transaction::class);
+    }
+
+    public function bookborrow_transaction(){
+        return $this->hasMany(BookBorrow_transaction::class);
     }
 
 }

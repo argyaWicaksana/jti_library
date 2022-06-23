@@ -15,9 +15,13 @@ class BookBorrow_transaction extends Model
         'book_id',
         'borrow_transaction_id',
         'number_book_borrow',
-        'date_borrow',
-        'date_returndata',
-        'status',
     ];
     
+    public function book(){
+        return $this->belongsTo(Book::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

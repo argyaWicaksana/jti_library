@@ -35,12 +35,12 @@ class Book extends Model
         return $this->belongsTo(Type::class);
     }
 
-    public function book(){
-        return $this->belongsToMany(Book::class,'catalog_book','catalog_id','book_id')->withPivot('BookCatalog');
+    public function borrow_transaction(){
+        return $this->hasMany(Borrow_transaction::class);
     }
 
-    public function borrow_transaction(){
-        return $this->belongsToMany(Borrow_transaction::class,'book_borrow_transaction','borrow_transaction_id','book_id')->withPivot('number_book_borrow');
+    public function bookborrow_transaction(){
+        return $this->hasMany(BookBorrow_transaction::class);
     }
 
 }
