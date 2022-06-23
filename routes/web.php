@@ -62,6 +62,7 @@ Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
 Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail');
 Route::get('/show/{id}',[DashboardController::class, 'show'])->name('studentDashboard.show');
+Route::post('/borrow/{id}',[DashboardController::class, 'borrow'])->name('studentDashboard.borrow');
 
 
 Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
