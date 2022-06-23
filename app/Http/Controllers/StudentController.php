@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookBorrow_transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
@@ -228,5 +229,13 @@ class StudentController extends Controller
         $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
         return $pdf->stream('student.pdf');
     }
-    
+
+    public function transaction()
+    {
+        // $student = User::paginate(3);
+        // // $posts = Student::orderBy('id','asc')->paginate(3);
+        // return view('admin.student.index', compact('student'));
+        $transaction = BookBorrow_transaction::paginate(3); // modelnya diganti disini
+        return view('studentDashboard.transaction', [compact('transaction'),"title" => 'Transaction']); 
+    }
 }

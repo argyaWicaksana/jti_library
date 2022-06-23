@@ -47,6 +47,7 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/admindashboard', 'dashboard')->middleware('is_admin')->name('/admindashboard');
     Route::get('/admintransaction', 'transaction')->middleware('is_admin');
 });
+Route::get('/studenttransaction', [StudentController::class, 'transaction'])->name('/studenttransaction');
 
 Auth::routes();
  //Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');

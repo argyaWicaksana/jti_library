@@ -11,13 +11,19 @@
             <ul>
                 <li class="nav-item {{ ($title === " Home") ? 'active' : '' }}">
                     <a class="nav-link scrollto " href="/studentdashboard">Home</a></li>
+
                 <li class="nav-item {{ ($title === " Cart") ? 'active' : '' }}">
                     <a class="nav-link scrollto" href="/cart">Cart</a></li>
+
+                <li class="nav-item {{ ($title === " Transaction") ? 'active' : '' }}">
+                    <a class="nav-link scrollto" href="/studenttransaction">Transaction</a></li> 
+                    {{-- transaction route dan controllernya belum di buat --}}
                 <li class="nav-item {{ ($title === " Account") ? 'active' : '' }}">
                     <a class="nav-link scrollto" href="/account">Account</a></li>
-                    <li class="nav-item {{ ($title === " Logout") ? 'active' : '' }}">
-                        <a class="nav-link scrollto" href="/logout">Logout</a></li>
-                <!-- <li><a class="nav-link scrollto" href="/login">Login</a></li> -->
+
+                <li class="nav-item {{ ($title === " Logout") ? 'active' : '' }}">
+                    <a class="nav-link scrollto" href="/logout">Logout</a></li>
+        
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

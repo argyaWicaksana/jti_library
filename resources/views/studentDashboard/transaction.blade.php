@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('studentDashboard.layout.main')
 
 @section('content')
 <div class="main-panel">
@@ -17,7 +17,13 @@
                                     <input type="search" class="form-control" placeholder="Search Here" title="Search here">
                                 </form>
                             </li>
+
                         </ul>
+                        <div>
+                            <div class="btn-wrapper">
+                                <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card card-dashboard">
@@ -35,7 +41,6 @@
                                         <th scope="col">Date Borrow</th>
                                         <th scope="col">Date Return</th>
                                         <th scope="col">Status</th>
-                                        <th width="280px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,16 +51,6 @@
                                         <td>{{ $trc ->date_borrow }}</td>
                                         <td>{{ $trc ->date_returndata }}</td>
                                         <td>{{ $trc ->status }}</td>
-                                        <td>
-                                            {{-- <form action="{{ route('student.destroy',['student'=>$mhs->id]) }}" method="POST">
-                                                <a class="btn btn-info" href="{{ route('student.show',$mhs->id) }}">Show</a>
-                                                <a class="btn btn-primary" href="{{ route('student.edit',$mhs->id) }}">Edit</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form> --}} 
-                                            {{-- template actionnya dibuat untuk mengganti status dan route nya masih perlu dirubah --}}
-                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
