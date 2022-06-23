@@ -100,14 +100,19 @@ class LoginController extends Controller
         ]);
  
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+            if(auth()->user()->is_admin == 1){
+                return redirect()->route('/admindashboard');
+            }else{
+                return redirect()->route('/studentdashboard');
+            }
             
-            return redirect()->intended('/admindashboard');
-        }
+        }else{
  
          return back()->withErrors([
             'username' => 'The provided credentials do not match our records',
         ]);
+
+        }
     }
 
     // public function authenticate(Request $request){

@@ -106,9 +106,9 @@ class RegisterController extends Controller
             $input['profile_picture'] = $profile_name;
         }
         $input['password']= Hash::make($input['password']);
-
+   
         User::create($input);
-        
+       
         $request->session()->flash('success','Registration successfull! Please login');
         return redirect('/login');
 
