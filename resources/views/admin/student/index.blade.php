@@ -29,9 +29,11 @@
                             <a class="btn btn-success mt-3" href="{{ route('print_student') }}" target="_blank">Print</a>
                         </div>
                     </div>
+
                     <div class="float-right my-2">
                         <a class="btn btn-success" href="{{ route('student.create') }}"> Input Student Data</a>
                     </div>
+
                     <div class="card card-dashboard">
                         <div class="card-body text-center">
                             <h4 class="card-title">The List of Student</h4>
@@ -88,6 +90,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

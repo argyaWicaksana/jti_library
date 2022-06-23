@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\BookBorrow_transaction;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -26,8 +26,7 @@ class AdminController extends Controller
     // }
     public function transaction()
     {
-        return view('admin.transaction', [
-            "title" => 'Transaction'
-        ]);
+        $transaction = BookBorrow_transaction::paginate(3); // modelnya diganti disini
+        return view('admin.transaction', [compact('transaction'),"title" => 'Transaction']);
     }
 }
