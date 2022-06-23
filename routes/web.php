@@ -62,12 +62,14 @@ Auth::routes();
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
 Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail');
+Route::get('/search',[HomeController::class, 'search'])->name('home.search');
 Route::get('/show/{id}',[DashboardController::class, 'show'])->name('studentDashboard.show');
 Route::post('/borrow/{id}',[DashboardController::class, 'borrow'])->name('studentDashboard.borrow');
 Route::get('/cart',[DashboardController::class, 'cart'])->name('studentDashboard.cart');
 Route::delete('/destroy/{id}',[DashboardController::class, 'destroy'])->name('studentDashboard.destroy');
 Route::get('/checkout',[DashboardController::class, 'checkout'])->name('studentDashboard.checkout');
 Route::post('/update/{id}',[DashboardController::class, 'update'])->name('studentDashboard.update');
+Route::get('/search',[DashboardController::class, 'search'])->name('studentDashboard.search');
 
 
 
@@ -79,3 +81,6 @@ Route::get('print_student', [StudentController::class, 'print_student'])->name('
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
 Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
 Route::get('print_books', [BookController::class, 'print_books'])->name('print_books');
+Route::get('/search',[BookController::class, 'search'])->name('admin.book.search');
+Route::get('/search',[StudentController::class, 'search'])->name('admin.student.search');
+

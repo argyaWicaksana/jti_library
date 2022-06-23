@@ -20,6 +20,8 @@ class AdminController extends Controller
             "datat" => $datat
         ]);
     }
+
+
     // public function books()
     // {
     //     return view('admin.books.index', [

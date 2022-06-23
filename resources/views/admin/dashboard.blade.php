@@ -6,70 +6,37 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="home-tab">
-                    <div class="d-sm-flex align-items-center justify-content-between border-bottom">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab" aria-selected="false">Audiences</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab" aria-selected="false">Demographics</a>
-                            </li> -->
-                            <li class="nav-item">
-                                <form class="search-form" action="#">
-                                    <i class="icon-search"></i>
-                                    <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-                                </form>
-                            </li>
-
-                        </ul>
-                    </div>
                     <div class="card card-dashboard">
                         <div class="card-body text-center">
                             <h4 class="card-title">LIBRARY INFORMATION</h4>
                             <div class="container">
+
                                 <div class="row row-dashboard">
-                                    <div class="col">
-                                        <div>
-                                            <p class="dashboard-information">Total Students</p>
-                                            <h3 class="total">
-                                                <tr>
-                                                    <td>{{ $datas }}</td>
-                                                </tr>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div>
-                                            <p class="dashboard-information">Total Books</p>
-                                            <h3 class="total">
-                                                <tr>
-                                                    <td>{{ $datab }}</td>
-                                                </tr>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row row-dashboard">
-                                    <div class="col">
-                                        <div>
-                                            <p class="dashboard-information">Total Transactions</p>
-                                            <h3 class="total">
-                                                <tr>
-                                                    <td>{{ $datat }}</td>
-                                                </tr>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex justify-content-between">
+                                            <div>
+                                                <h3 class="">Total Student</h3>
+                                            </div>
+                                            <span class="text-muted" style="font-size: 20px; font-weight: 700;">{{ $datas }}</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between mt-2">
+                                            <div>
+                                                <h3 class="">Total Book</h3>
+                                            </div>
+                                            <span class="text-muted" style="font-size: 20px; font-weight: 700;">{{ $datab }}</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between mt-2">
+                                            <div>
+                                                <h3 class="">Total Transaction</h3>
+                                            </div>
+                                            <span class="text-muted" style="font-size: 20px; font-weight: 700;">{{ $datat }}</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- content-wrapper ends -->
-        @endsection
+            <!-- content-wrapper ends -->
+            @endsection

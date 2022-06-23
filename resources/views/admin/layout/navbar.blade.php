@@ -7,7 +7,7 @@
       </button>
     </div>
     <div class="logo">
-      <h1><a href="/" class="navbar-brand brand-logo" ><span>JTI E-Library</span></a></h1>
+      <h1><a href="/admindashboard" class="navbar-brand brand-logo" ><span>JTI E-Library</span></a></h1>
       <a class="navbar-brand brand-logo-mini" href="/dashboard">
         <img src="assets/img/logo.png" alt="logo" />
       </a>

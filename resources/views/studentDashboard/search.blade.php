@@ -8,8 +8,8 @@
         <div class="row row-home justify-content-between">
             <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
                 <div data-aos="zoom-out">
-                    <h1>Hi! Welcome Back <span>Student</span></h1>
-                    <h2>Want to see something new?</h2>
+                    <h1>Welcome to <span>JTI E-Library</span></h1>
+                    <h2>Get your book and spend time for read more</h2>
                     <div class="text-center text-lg-start">
                         <a href="#about" class="btn-get-started scrollto">Catalog</a>
                     </div>
@@ -39,22 +39,16 @@
 </section>
 <!-- ======= Catalog Section ======= -->
 <section id="about" class="about">
-    <div class="container-search">
-        <div class="row justify-content-end">
-            <div class="col-md-4">
-                <form method="get" action="{{ url('search') }}">
-                    <div class="input-group mb-3">
-                        <input type="text" name="search" class="form-control input-text" placeholder="Search products...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-purple btn-lg" type="button"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <section id="team" class="team">
+
         <div class="container">
+            <a href="/studentdashboard">
+                <i class="bi bi-arrow-left" style="font-size: 3rem;"></i>
+            </a>
+            <div class="text-center">
+                <h3>{{ $catalog->total() }} Book Found</h3>
+                <br><br>
+            </div>
             <div class="row" data-aos="fade-left">
                 @foreach($catalog as $ctg)
                 <div class="col-lg-2 col-md-6 mt-5 mt-md-0">
@@ -72,21 +66,19 @@
                             <div class="social">
                                 <i class="bi bi-book"></i>
                                 <i>:{{ $ctg->stock }} available</i>
-                                <i action="{{ route('studentDashboard.show', $ctg->id) }}" method="POST">
+                                <i action="{{ route('home.detail', $ctg->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
-                                    <a href="{{ route('studentDashboard.show',$ctg->id) }}"><i class="bi bi-file-text-fill"></i></a>
+                                    <a href="{{ route('home.detail', $ctg->id) }}"><i class="bi bi-file-text-fill"></i></a>
                                 </i>
                             </div>
                         </div>
                     </div>
                 </div>
                 @endforeach
-            </div>
+    </section>
+    <!-- End Team Section -->
 
-        </div>
-    </section><!-- End Team Section -->
-
-    </main><!-- End #main -->
-
+    </main>
+    <!-- End #main -->
     @endsection

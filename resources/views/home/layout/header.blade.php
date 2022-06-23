@@ -9,11 +9,11 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li class="nav-item {{ ($title === " Home") ? 'active' : '' }}">
+                <li class="nav-item">
                     <a class="nav-link scrollto " href="/">Home</a></li>
-                <li class="nav-item {{ ($title === " About") ? 'active' : '' }}">
+                <li class="nav-item">
                     <a class="nav-link scrollto" href="/about">About</a></li>
-                <li class="nav-item {{ ($title === " Contactus") ? 'active' : '' }}">
+                <li class="nav-item">
                     <a class="nav-link scrollto" href="/contactus">Contact Us</a></li>
                 <li><a class="nav-link scrollto" href="/login">Login</a></li>
             </ul>

@@ -33,9 +33,9 @@ class BookController extends Controller
     public function create()
     {
         $type = Type::all();
-        $publisher = Publisher::all();//get data from class table
+        $publisher = Publisher::all(); //get data from class table
         // $catalog = Catalog::all();
-        return view('admin.book.create', compact('type','publisher'));
+        return view('admin.book.create', compact('type', 'publisher'));
     }
 
     /**
@@ -59,13 +59,13 @@ class BookController extends Controller
             // 'catalog_id' => ['required'],
             'description' => ['required', 'string'],
         ];
-        
-        $data = $request->validate($rules);        
-        
-        if($request->file('photo')){
+
+        $data = $request->validate($rules);
+
+        if ($request->file('photo')) {
             $data['photo'] = $request->file('photo')->store('images/photo');
         }
-        
+
         Book::create($data);
 
         // return redirect()->route('student.index')
@@ -127,9 +127,9 @@ class BookController extends Controller
     {
         $Book = Book::where('id', $id)->first();
         $type = Type::all();
-        $publisher = Publisher::all();//get data from class table
+        $publisher = Publisher::all(); //get data from class table
         // $catalog = Catalog::all();
-        return view('admin.book.edit', compact('type','publisher','Book'));
+        return view('admin.book.edit', compact('type', 'publisher', 'Book'));
     }
 
     /**
@@ -154,18 +154,18 @@ class BookController extends Controller
             // 'catalog_id' => ['required'],
             'description' => ['required', 'string'],
         ];
-        
+
         $data = $request->validate($rules);
 
-        if($request->file('photo')){
-            if($request->oldProfile){
+        if ($request->file('photo')) {
+            if ($request->oldProfile) {
                 Storage::delete($request->oldProfile);
             }
             $data['photo'] = $request->file('photo')->store('images/photo');
         }
 
         Book::where('id', $book->id)
-        -> update($data);
+            ->update($data);
 
         return redirect()->route('book.index')
             ->with('success', 'Book Successfully Updated');
@@ -188,15 +188,30 @@ class BookController extends Controller
 
         $book->delete();
         return redirect()->route('book.index')
-        ->with('success','Book Successfully Deleted');
+            ->with('success', 'Book Successfully Deleted');
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+
+        $book = Book::where('title', 'like', "%" . $keyword . "%")
+            ->orWhere('status', 'like', "%" . $keyword . "%")
+            ->orWhere('stock', 'like', "%" . $keyword . "%")
+            ->orWhere('isbn_issn', 'like', "%" . $keyword . "%")
+            ->orWhere('author', 'like', "%" . $keyword . "%")
+            ->paginate(3);
+        return view('admin.book.search', compact('book'))
+            ->with('i', (request()->input('page', 1) - 1) * 3);
+    }
+
     public function print_books()
-    {  
+    {
         //$student = User::where('id', $id)->first();
-       
+
         $books = Book::all();
         // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
-        $pdf = PDF::loadview('print.books_pdf', ['books'=> $books]);
+        $pdf = PDF::loadview('print.books_pdf', ['books' => $books]);
         return $pdf->stream('books.pdf');
     }
 }

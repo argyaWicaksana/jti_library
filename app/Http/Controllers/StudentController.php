@@ -32,7 +32,7 @@ class StudentController extends Controller
             ->orWhere('nim', 'like', "%" . $keyword . "%")
             ->orWhere('username', 'like', "%" . $keyword . "%")
             ->paginate(3);
-        return view('student.search', compact('student'))
+        return view('admin.student.search', compact('student'))
             ->with('i', (request()->input('page', 1) - 1) * 3);
     }
 
@@ -229,7 +229,6 @@ class StudentController extends Controller
         $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
         return $pdf->stream('student.pdf');
     }
-
     public function transaction()
     {
         // $student = User::paginate(3);

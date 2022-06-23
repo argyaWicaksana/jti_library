@@ -42,12 +42,14 @@
   <div class="container-search">
     <div class="row justify-content-end">
       <div class="col-md-4">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control input-text" placeholder="Search products...." aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-purple btn-lg" type="button"><i class="bi bi-search"></i></button>
+        <form method="get" action="{{ url('search') }}">
+          <div class="input-group mb-3">
+            <input type="text" name="search" class="form-control input-text" placeholder="Search products...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-purple btn-lg" type="button"><i class="bi bi-search"></i></button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>

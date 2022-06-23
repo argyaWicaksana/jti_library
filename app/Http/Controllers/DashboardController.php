@@ -21,6 +21,17 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+
+        $catalog = Book::where('title', 'like', "%" . $keyword . "%")
+            ->orWhere('author', 'like', "%" . $keyword . "%")
+            ->paginate(3);
+        return view('studentDashboard.search', compact('catalog'))
+            ->with('i', (request()->input('page', 1) - 1) * 3);
+    }
+
     public function show($id)
     {
         $catalog = Book::where('id', $id)->first();
