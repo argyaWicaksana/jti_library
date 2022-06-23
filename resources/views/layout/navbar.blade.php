@@ -7,7 +7,7 @@
       </button>
     </div>
     <div class="logo">
-      <h1><a href="/" class="navbar-brand brand-logo" ><span>JTI E-Library</span></a></h1>
+      <h1><a href="/admindashboard" class="navbar-brand brand-logo" ><span>JTI E-Library</span></a></h1>
       <a class="navbar-brand brand-logo-mini" href="/dashboard">
         <img src="assets/img/logo.png" alt="logo" />
       </a>
@@ -19,12 +19,6 @@
         <h1 class="welcome-text">Hello, <span class="text-black fw-bold">User</span></h1>
         <h3 class="welcome-sub-text">admin001@gmail.com</h3>
       </li>
-      <!-- <li class="nav-item">
-        <form class="search-form" action="#">
-          <i class="icon-search"></i>
-          <input type="search" class="form-control" placeholder="Search Here" title="Search here">
-        </form>
-      </li> -->
       <li class="nav-item dropdown d-none d-lg-block user-dropdown">
         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <img class="img-xs rounded-circle" src="assets/img/faces/face8.jpg" alt="Profile image"> </a>
