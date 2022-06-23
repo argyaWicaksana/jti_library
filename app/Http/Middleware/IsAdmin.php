@@ -16,10 +16,11 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->guest() || !auth()->user()->is_admin) {
-            abort(403);
+
+        if(auth()->user()->is_admin == 1){
+            return $next($request);
         }
+        return redirect('/');
         
-        return $next($request);
     }
 }

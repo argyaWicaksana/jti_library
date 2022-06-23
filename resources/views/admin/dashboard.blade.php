@@ -40,13 +40,13 @@
                                     <div class="col">
                                         <div>
                                             <p class="dashboard-information">Total Students</p>
-                                            <h3 class="total">1000</h3>
+                                            <h3 class="total">5</h3>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div>
                                             <p class="dashboard-information">Total Books</p>
-                                            <h3 class="total">1000</h3>
+                                            <h3 class="total">6</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                     <div class="col">
                                         <div>
                                             <p class="dashboard-information">Total Transactions</p>
-                                            <h3 class="total">1000</h3>
+                                            <h3 class="total">1</h3>
                                         </div>
                                     </div>
                                     

@@ -39,19 +39,19 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/studentdashboard', 'dashboard');
-    // Route::get('/cart', 'cart');
+    Route::get('/studentdashboard', 'dashboard')->name('/studentdashboard');
     Route::get('/account', 'account');
 });
 
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admindashboard', 'dashboard');
-    Route::get('/admintransaction', 'transaction');
+    Route::get('/admindashboard', 'dashboard')->middleware('is_admin')->name('/admindashboard');
+    Route::get('/admintransaction', 'transaction')->middleware('is_admin');
 });
 
 Auth::routes();
  //Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
  Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
- Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+ Route::get('/logout', [LoginController::class, 'logout'])->name('/logout');
  
 
  //Route::get('/register', [RegisterController::class, 'index'])->name('register');

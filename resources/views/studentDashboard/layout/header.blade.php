@@ -15,6 +15,8 @@
                     <a class="nav-link scrollto" href="/cart">Cart</a></li>
                 <li class="nav-item {{ ($title === " Account") ? 'active' : '' }}">
                     <a class="nav-link scrollto" href="/account">Account</a></li>
+                    <li class="nav-item {{ ($title === " Logout") ? 'active' : '' }}">
+                        <a class="nav-link scrollto" href="/logout">Logout</a></li>
                 <!-- <li><a class="nav-link scrollto" href="/login">Login</a></li> -->
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
