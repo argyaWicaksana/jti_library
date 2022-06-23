@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\BookBorrow_transaction;
 use App\Models\Borrow_transaction;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -112,5 +113,11 @@ class DashboardController extends Controller
         return view('studentDashboard.account', [
             "title" => 'Account'
         ]);
+    }
+
+    public function AdminDashboard(Request $request){
+        //student, book, transaction tables
+      
+        
     }
 }
