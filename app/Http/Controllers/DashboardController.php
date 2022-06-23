@@ -68,17 +68,6 @@ class DashboardController extends Controller
         return redirect('/studentdashboard');
     }
 
-    public function setcheckout(Request $request, $id)
-    {
-        $cart = Borrow_transaction::where('id', $id)->first();
-
-        $cart->date_borrow = $request->date_borrow;
-        $cart->date_returndata = $request->date_returndata;
-        $cart->save();
-
-        return redirect('/studentdashboard');
-    }
-
     public function cart()
     {
         $cart = Borrow_transaction::all();
@@ -102,9 +91,29 @@ class DashboardController extends Controller
         return redirect('/cart');
     }
 
+    public function update(Request $request, $id)
+    {
+        $book_borrow = Borrow_transaction::where('id', $id)->first();
+        $book_borrow->date_borrow = $request->date_borrow;
+        $book_borrow->date_returndata = $request->date_returndata;
+        $book_borrow->save();
+        
+        // $rules = [
+        //     'date_borrow' => ['required'],
+        //     'date_returndata' => ['required'],
+        // ];
+
+        // $data = $request->validate($rules);
+
+        // Borrow_transaction::where('id', $id)
+        //     ->update($book_borrow);
+
+        //if the data successfully updated, will return to main page
+        return redirect()->route('/studentdashboard');
+    }
+
     public function checkout()
     {
-
     }
 
     public function account()

@@ -64,9 +64,10 @@ Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail'
 Route::get('/show/{id}',[DashboardController::class, 'show'])->name('studentDashboard.show');
 Route::post('/borrow/{id}',[DashboardController::class, 'borrow'])->name('studentDashboard.borrow');
 Route::get('/cart',[DashboardController::class, 'cart'])->name('studentDashboard.cart');
-Route::post('/setcheckout/{id}',[DashboardController::class, 'setcheckout'])->name('studentDashboard.setcheckout');
 Route::delete('/destroy/{id}',[DashboardController::class, 'destroy'])->name('studentDashboard.destroy');
 Route::get('/checkout',[DashboardController::class, 'checkout'])->name('studentDashboard.checkout');
+Route::post('/update/{id}',[DashboardController::class, 'update'])->name('studentDashboard.update');
+
 
 
 Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
