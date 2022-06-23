@@ -44,6 +44,16 @@ class DashboardController extends Controller
             $borrow_transaction->amount = $request->amount;
             $borrow_transaction->save();
         }
+        else
+        {
+            $borrow_transaction = Borrow_transaction::where('user_id', Auth::user()->id)->first();
+
+            $borrow_transaction->user_id = Auth::user()->id;
+            $borrow_transaction->book_id = $book->id;
+            $borrow_transaction->amount =  $borrow_transaction->amount+$request->amount;
+            $borrow_transaction->update();
+
+        }
 
         $borrow = Borrow_transaction::where('user_id', Auth::user()->id)->first();
 
@@ -64,10 +74,6 @@ class DashboardController extends Controller
             $book_borrow->update();
 
         }
-
-        // $borrow = Borrow_transaction::where('user_id', Auth::user()->id)->first();
-        // $borrow->amount = $borrow->amount+$request->amount;
-        // $borrow->update();
 
         return redirect('/studentdashboard');
 
