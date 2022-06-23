@@ -134,7 +134,7 @@
                             <b>Amount   :</b>
                         </div>
                         <div class="col-md-2 text-start">
-                            <input class="form-control input-amount" type="text" name="amount">
+                            <input class="form-control input-amount" type="text" name="number_book_borrow">
                         </div>
                     </div>
                     <button class="btn btn-outline-primary" role="button" type="submit">Checkout</button>
