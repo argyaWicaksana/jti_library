@@ -31,7 +31,8 @@
 
   <!-- fontawesome -->
   <link rel="stylesheet" href="assets/fontawesome/css/all.min.css" />
-  <link rel="stylesheet" href="assets/fontawesome/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome-4.7.0/css/fontawesome.min.css" />
 
   <!-- =======================================================
   * Template Name: Bootslander - v4.7.2
