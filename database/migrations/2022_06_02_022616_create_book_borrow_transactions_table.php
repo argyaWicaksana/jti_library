@@ -20,6 +20,10 @@ class CreateBookBorrowTransactionsTable extends Migration
             $table->unsignedBigInteger('borrow_transaction_id');
             $table->foreign('borrow_transaction_id')->references('id')->on('borrow_transaction');
             $table->integer('number_book_borrow');
+            $table->date('date_borrow')->nullable();
+            $table->date('date_returndata')->nullable();
+            $table->string('status')->nullable();
+            $table->timestamps();
         });
     }
 

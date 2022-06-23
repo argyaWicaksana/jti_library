@@ -13,9 +13,10 @@ class Borrow_transaction extends Model
   
     protected $fillable = [
         //id
-        'date_borrow',
-        'date_returndata',
-        'status',
+        'amount',
+        // 'date_borrow',
+        // 'date_returndata',
+        // 'status',
     ];
 
     public function return_transaction(){

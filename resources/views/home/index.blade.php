@@ -73,7 +73,7 @@
                 <i action="{{ route('home.detail', $ctg->id) }}" method="POST">
                   @csrf
                   @method('PUT')
-                  <a href="{{ route('home.detail',$ctg->id) }}"><i class="bi bi-file-text-fill"></i></a>
+                  <a href="{{ route('home.detail', $ctg->id) }}"><i class="bi bi-file-text-fill"></i></a>
                 </i>
               </div>
             </div>

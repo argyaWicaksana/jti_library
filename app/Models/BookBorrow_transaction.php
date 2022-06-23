@@ -15,6 +15,9 @@ class BookBorrow_transaction extends Model
         'book_id',
         'borrow_transaction_id',
         'number_book_borrow',
+        'date_borrow',
+        'date_returndata',
+        'status',
     ];
     
 }

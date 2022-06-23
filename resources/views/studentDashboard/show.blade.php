@@ -58,6 +58,20 @@
         .bi-arrow-left {
             width: 50px;
         }
+
+        .input-amount {
+            margin-top: 12px;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            width: 260px;
+            margin-top: 10px;
+        }
+        .amount{
+            margin-top: 15px;
+        }
     </style>
 </head>
 
@@ -92,7 +106,7 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-1 mt-5">
-                <a href="/">
+                <a href="/studentdashboard">
                     <i class="bi bi-arrow-left" style="font-size: 3rem;"></i>
                 </a>
             </div>
@@ -113,15 +127,24 @@
                 <div class="desc"><b>Type: </b>{{$catalog->type->name}}</div>
                 <div class="desc"><b>Publisher: </b>{{$catalog->publisher->name}}</div>
                 <div class="desc"><b>Description: </b>{{$catalog->description}}</div>
-                <button type="button" class="btn btn-outline-primary mt-3" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                    Checkout
-                </button>
+                <form action="{{ route('studentDashboard.borrow', $catalog->id) }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-2 amount">
+                            <b>Amount   :</b>
+                        </div>
+                        <div class="col-md-2 text-start">
+                            <input class="form-control input-amount" type="text" name="amount">
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-primary" role="button" type="submit">Checkout</button>
+                </form>
             </div>
         </div>
 
     </main>
 
-    <footer class="footer">
+    <footer class="footer mt-5">
         <div class="container text-center">
             <div class="copyright">
                 &copy; Copyright <strong><span>JTI E-Library</span></strong>. All Rights Reserved
