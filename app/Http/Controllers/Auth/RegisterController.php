@@ -91,20 +91,24 @@ class RegisterController extends Controller
             ]);
 
        $input = $request->all();
-       if($request->hasFile('ktm_picture') &&$request->hasFile('profile_picture') ){
-            $destination_path_ktm = 'public/images/ktm';
-            $destination_path_profile =  'public/images/profile';
-            $ktm = $request->file('ktm_picture');
-            $profile = $request->file('profile_picture');
+       if($request->file('profile_picture') && $request->file('ktm_picture')){
+        $input['profile_picture'] = $request->file('profile_picture')->store('images/profil');
+        $input['ktm_picture'] = $request->file('ktm_picture')->store('images/ktm');
+    }
+    //    if($request->hasFile('ktm_picture') &&$request->hasFile('profile_picture') ){
+    //         $destination_path_ktm = 'public/images/ktm';
+    //         $destination_path_profile =  'public/images/profile';
+    //         $ktm = $request->file('ktm_picture');
+    //         $profile = $request->file('profile_picture');
           
-            $ktm_name = $ktm->getClientOriginalName();
-            $profile_name = $profile->getClientOriginalName();
-            $path_ktm = $request->file('ktm_picture')->storeAs($destination_path_ktm,$ktm_name);
-            $path_profile = $request->file('profile_picture')->storeAs($destination_path_profile,$profile_name);
+    //         $ktm_name = $ktm->getClientOriginalName();
+    //         $profile_name = $profile->getClientOriginalName();
+    //         $path_ktm = $request->file('ktm_picture')->storeAs($destination_path_ktm,$ktm_name);
+    //         $path_profile = $request->file('profile_picture')->storeAs($destination_path_profile,$profile_name);
 
-            $input['ktm_picture'] = $ktm_name;
-            $input['profile_picture'] = $profile_name;
-        }
+    //         $input['ktm_picture'] = $ktm_name;
+    //         $input['profile_picture'] = $profile_name;
+    //     }
         $input['password']= Hash::make($input['password']);
    
         User::create($input);
