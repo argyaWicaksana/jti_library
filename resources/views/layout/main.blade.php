@@ -76,7 +76,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="admintransaction">
+          <a class="nav-link" href="/transaction">
             <i class="mdi mdi-file-document menu-icon"></i>
             <span class="menu-title">Transaction</span>
           </a>

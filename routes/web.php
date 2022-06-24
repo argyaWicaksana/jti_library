@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
@@ -61,6 +62,7 @@ Auth::routes();
  
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
+Route::resource('transaction', TransactionController::class);
 Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail');
 Route::get('/search',[HomeController::class, 'search'])->name('home.search');
 Route::get('/show/{id}',[DashboardController::class, 'show'])->name('studentDashboard.show');
@@ -82,4 +84,6 @@ Route::get('print_student', [StudentController::class, 'print_student'])->name('
 Route::get('print_books', [BookController::class, 'print_books'])->name('print_books');
 Route::get('/search',[BookController::class, 'search'])->name('admin.book.search');
 Route::get('/search',[StudentController::class, 'search'])->name('admin.student.search');
+Route::get('/search',[TransactionController::class, 'search'])->name('admin.transaction.search');
+
 
