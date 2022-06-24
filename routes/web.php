@@ -40,7 +40,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/studentdashboard', 'dashboard');
     Route::get('/studentdashboard', 'dashboard')->name('/studentdashboard');
-    Route::get('/account', 'account');
+    Route::get('/account', 'account')->name('account');
 });
 
 Route::controller(AdminController::class)->group(function () {
@@ -63,7 +63,7 @@ Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
 Route::get('/detail/{id}',[HomeController::class, 'detail'])->name('home.detail');
 Route::get('/search',[HomeController::class, 'search'])->name('home.search');
-Route::get('/show/{id}',[DashboardController::class, 'show'])->name('studentDashboard.show');
+Route::get('/show/{id}',[DashboardController::class, 'show'])->name('studentDashboard.show'); //pakai logika ini untuk akun
 Route::post('/borrow/{id}',[DashboardController::class, 'borrow'])->name('studentDashboard.borrow');
 Route::get('/cart',[DashboardController::class, 'cart'])->name('studentDashboard.cart');
 Route::delete('/destroy/{id}',[DashboardController::class, 'destroy'])->name('studentDashboard.destroy');

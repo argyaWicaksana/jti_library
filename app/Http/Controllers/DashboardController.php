@@ -15,10 +15,13 @@ class DashboardController extends Controller
     public function dashboard()
     {
         $catalog = Book::all();
-        return view('studentDashboard.dashboard', [
-            "title" => 'Dashboard',
-            "catalog" => $catalog
-        ]);
+        $student = User::all();
+        return view(
+            'studentDashboard.dashboard', 
+            ["title" => 'Dashboard',
+            "catalog" => $catalog,
+            "student"=> $student]
+        );
     }
 
     public function search(Request $request)
@@ -133,14 +136,10 @@ class DashboardController extends Controller
 
     public function account()
     {
+        $student = User::find(Auth::user()->id);
         return view('studentDashboard.account', [
-            "title" => 'Account'
+            "title" => 'Account',
+            "student"=>compact('student')
         ]);
-    }
-
-    public function AdminDashboard(Request $request){
-        //student, book, transaction tables
-      
-        
     }
 }

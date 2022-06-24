@@ -24,6 +24,7 @@ class StudentController extends Controller
         return view('admin.student.index', compact('student'));
     }
 
+
     public function search(Request $request)
     {
         $keyword = $request->search;
