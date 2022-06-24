@@ -9,6 +9,7 @@ use DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\App;
 use PDF;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -92,6 +93,7 @@ class StudentController extends Controller
             $data['profile_picture'] = $request->file('profile_picture')->store('images/profil');
             $data['ktm_picture'] = $request->file('ktm_picture')->store('images/ktm');
         }
+        $data['password']= Hash::make($data['password']);
         
         User::create($data);
         // $student = new Student();
