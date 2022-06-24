@@ -69,7 +69,8 @@
             width: 260px;
             margin-top: 10px;
         }
-        .amount{
+
+        .amount {
             margin-top: 15px;
         }
     </style>
@@ -85,17 +86,24 @@
 
             <div class="collapse navbar-collapse justify-content-md-end" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto " href="/studentdashboard">Home</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/about">About</a>
+
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="/cart">Cart</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/contactus">Contact Us</a>
+
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="/studenttransaction">Transaction</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/login">Login</a>
+                    {{-- transaction route dan controllernya belum di buat --}}
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="/account">Account</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -131,13 +139,13 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 amount">
-                            <b>Amount   :</b>
+                            <b>Amount :</b>
                         </div>
                         <div class="col-md-2 text-start">
                             <input class="form-control input-amount" type="text" name="number_book_borrow">
                         </div>
                     </div>
-                    <button class="btn btn-outline-primary" role="button" type="submit">Checkout</button>
+                    <button class="btn btn-outline-primary" role="button" type="submit">Add to Cart</button>
                 </form>
             </div>
         </div>

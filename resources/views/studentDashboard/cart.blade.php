@@ -78,7 +78,7 @@
         <label class="custom-control-label" for="same-address">I agree of JTI E-Library Term of Service</label>
       </div>
       <hr class="mb-4">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Checkout</button>
     </form>
     @endforeach
   </div>

@@ -44,7 +44,7 @@ class DashboardController extends Controller
         $book = Book::where('id', $id)->first();
 
         if ($request->number_book_borrow > $book->stock) {
-            return redirect('detail/' . $id);
+            return redirect('show/' . $id);
         }
 
         $cek_borrow = Borrow_transaction::where('users_id', Auth::user()->id)->first();
@@ -77,11 +77,20 @@ class DashboardController extends Controller
             $book_borrow->update();
         }
 
-        return redirect('/studentdashboard');
+        return redirect('/cart');
     }
 
     public function cart()
     {
+        // $borrow = new BookBorrow_transaction;
+        // $cart = Borrow_transaction::where('users_id', Auth::user()->id)->where('status', null)->first();
+        // if(!empty('cart'))
+        // {
+        //     $borrow_book = BookBorrow_transaction::where('borrow_transaction_id', $cart->id)->get();
+        //     $borrow = $borrow_book;
+        // }
+        //     return view('studentDashboard.cart', compact('cart','borrow'));
+        
         $cart = Borrow_transaction::all();
         $borrow = BookBorrow_transaction::all();
         return view('studentDashboard.cart', [
@@ -108,24 +117,18 @@ class DashboardController extends Controller
         $book_borrow = Borrow_transaction::where('id', $id)->first();
         $book_borrow->date_borrow = $request->date_borrow;
         $book_borrow->date_returndata = $request->date_returndata;
+        $book_borrow->status = 'booked';
         $book_borrow->save();
+
+        $borrow_detail = BookBorrow_transaction::where('borrow_transaction_id', $id)->get();
+        foreach ($borrow_detail as $borrow){
+            $book = Book::where('id', $borrow->book_id)->first();
+            $book->stock = $book->stock-$borrow->number_book_borrow;
+            $book->update();
+        }
         
-        // $rules = [
-        //     'date_borrow' => ['required'],
-        //     'date_returndata' => ['required'],
-        // ];
-
-        // $data = $request->validate($rules);
-
-        // Borrow_transaction::where('id', $id)
-        //     ->update($book_borrow);
-
-        //if the data successfully updated, will return to main page
+        
         return redirect()->route('/studentdashboard');
-    }
-
-    public function checkout()
-    {
     }
 
     public function account()

@@ -67,7 +67,6 @@ Route::get('/show/{id}',[DashboardController::class, 'show'])->name('studentDash
 Route::post('/borrow/{id}',[DashboardController::class, 'borrow'])->name('studentDashboard.borrow');
 Route::get('/cart',[DashboardController::class, 'cart'])->name('studentDashboard.cart');
 Route::delete('/destroy/{id}',[DashboardController::class, 'destroy'])->name('studentDashboard.destroy');
-Route::get('/checkout',[DashboardController::class, 'checkout'])->name('studentDashboard.checkout');
 Route::post('/update/{id}',[DashboardController::class, 'update'])->name('studentDashboard.update');
 Route::get('/search',[DashboardController::class, 'search'])->name('studentDashboard.search');
 

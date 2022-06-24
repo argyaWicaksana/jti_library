@@ -62,7 +62,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/">JTI E-Library</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,16 +71,16 @@
 
             <div class="collapse navbar-collapse justify-content-md-end" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-link scrollto">
                         <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-link scrollto">
                         <a class="nav-link" href="/about">About</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-link scrollto">
                         <a class="nav-link" href="/contactus">Contact Us</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-link scrollto">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
                 </ul>
@@ -89,7 +89,7 @@
     </nav>
 
     <!-- Begin page content -->
-    <main role="main" class="container">
+    <main role="main" class="container mt-5 mb-5">
         <div class="row">
             <div class="col-md-1 mt-5">
                 <a href="/">
@@ -113,9 +113,6 @@
                 <div class="desc"><b>Type: </b>{{$catalog->type->name}}</div>
                 <div class="desc"><b>Publisher: </b>{{$catalog->publisher->name}}</div>
                 <div class="desc"><b>Description: </b>{{$catalog->description}}</div>
-                <button type="button" class="btn btn-outline-primary mt-3" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                    Checkout
-                </button>
             </div>
         </div>
 
