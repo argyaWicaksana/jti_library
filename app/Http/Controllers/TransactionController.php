@@ -120,4 +120,14 @@ class TransactionController extends Controller
         return view('admin.transaction.search', compact('trans'))
             ->with('i', (request()->input('page', 1) - 1) * 3);
     }
+
+    // public function print_transaction()
+    // {  
+    //     //$student = User::where('id', $id)->first();
+       
+    //     $student = Bor::all();
+    //     // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
+    //     $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
+    //     return $pdf->stream('student.pdf');
+    // }
 }
