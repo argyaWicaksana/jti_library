@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\App;
 use PDF;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Borrow_transaction;
 
 class StudentController extends Controller
 {
@@ -234,10 +235,8 @@ class StudentController extends Controller
     }
     public function transaction()
     {
-        // $student = User::paginate(3);
-        // // $posts = Student::orderBy('id','asc')->paginate(3);
-        // return view('admin.student.index', compact('student'));
-        $transaction = BookBorrow_transaction::paginate(3); // modelnya diganti disini
-        return view('studentDashboard.transaction', [compact('transaction'),"title" => 'Transaction']); 
+        $trans = Borrow_transaction::paginate(3);
+        // $posts = Student::orderBy('id','asc')->paginate(3);
+        return view('studentDashboard.transaction', compact('trans'));
     }
 }

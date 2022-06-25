@@ -36,27 +36,28 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Book</th>
+                                        <th scope="col">User ID</th>
                                         <th scope="col">Amount</th>
                                         <th scope="col">Date Borrow</th>
                                         <th scope="col">Date Return</th>
                                         <th scope="col">Status</th>
+                                     
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($transaction as $trc)
+                                    @foreach ($trans as $trs)
                                     <tr>
-                                        <td>{{ $trc ->book_id }}</td>
-                                        <td>{{ $trc ->number_book_borrow}}</td> {{-- kemungkinan error karena di book_borrow_transaction model krn yang lain di borrow_transaction --}}
-                                        <td>{{ $trc ->date_borrow }}</td>
-                                        <td>{{ $trc ->date_returndata }}</td>
-                                        <td>{{ $trc ->status }}</td>
+                                        <td>{{ $trs ->users_id }}</td>
+                                        <td>{{ $trs ->amount }}</td>
+                                        <td>{{ $trs ->date_borrow }}</td>
+                                        <td>{{ $trs ->date_returndata }}</td>
+                                        <td>{{ $trs ->status->name }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-center">
-                                {{ $transaction->links()}}
+                                {{ $trans->links()}}
                             </div>
                         </div>
                     </div>

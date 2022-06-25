@@ -33,10 +33,22 @@
       </li>
       <li class="nav-item dropdown d-none d-lg-block user-dropdown">
         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-          <img class="img-xs rounded-circle" src="assets/img/faces/face8.jpg" alt="Profile image"> </a>
+
+          {{-- <img class="img-xs rounded-circle" src="assets/img/faces/face8.jpg" alt="Profile image">  --}}
+          @php
+          $pathImage = '';
+          $admin->profile_picture ? ($pathImage = 'storage/' . $admin->profile_picture) : ($pathImage = 'picture/empty.png');
+          @endphp
+          <img class="img-xs rounded-circle"  src="{{ asset('' . $pathImage . '') }}" width="100" alt="Profile image">
+
+        </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
           <div class="dropdown-header text-center">
-            <img class="img-md rounded-circle" src="assets/img/faces/face8.jpg" alt="Profile image">
+            @php
+              $pathImage = '';
+              $admin->profile_picture ? ($pathImage = 'storage/' . $admin->profile_picture) : ($pathImage = 'picture/empty.png');
+            @endphp
+              <img class="img-xs rounded-circle"  src="{{ asset('' . $pathImage . '') }}" width="100" alt="Profile image">
             <p class="mb-1 mt-3 font-weight-semibold">
               @foreach(compact('admin') as $admin)
                 {{ $admin->name }}
