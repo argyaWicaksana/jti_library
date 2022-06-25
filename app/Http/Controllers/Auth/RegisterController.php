@@ -60,6 +60,7 @@ class RegisterController extends Controller
             'title' => 'Register'
         ]);
     }
+    
     /**
      * Get a validator for an incoming registration request.
      *

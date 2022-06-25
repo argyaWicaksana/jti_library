@@ -15,12 +15,12 @@ class DashboardController extends Controller
     public function dashboard()
     {
         $catalog = Book::all();
-        $student = User::all();
+        $student = User::find(Auth::user()->id);
         return view(
             'studentDashboard.dashboard', 
             ["title" => 'Dashboard',
             "catalog" => $catalog,
-            "student"=> $student]
+            "student"=> compact('student')]
         );
     }
 

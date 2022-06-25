@@ -8,11 +8,13 @@
         <div class="row row-home justify-content-between">
             <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
                 <div data-aos="zoom-out">
-                    <h1>Hi! Welcome Back <span>Student</span></h1>
+                    @foreach($student as $student)
+                    <h1>Hi! Welcome Back <span>{{ $student->name }}</span></h1>
                     <h2>Want to see something new?</h2>
                     <div class="text-center text-lg-start">
                         <a href="#about" class="btn-get-started scrollto">Catalog</a>
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-4 order-1 order-lg-2 home-img" data-aos="zoom-out" data-aos-delay="300">
@@ -68,7 +70,7 @@
                         </div>
                         <div class="member-info">
                             <h4>{{ $ctg->title }}</h4>
-                            <span>{{ $ctg-> author }}</span>
+                            <span>{{ $ctg->author }}</span>
                             <div class="social">
                                 <i class="bi bi-book"></i>
                                 <i>:{{ $ctg->stock }} available</i>
