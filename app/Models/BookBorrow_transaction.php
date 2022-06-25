@@ -24,4 +24,8 @@ class BookBorrow_transaction extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function borrow_transaction(){
+        return $this->belongsToMany(Borrow_transaction::class, 'borrow_transaction_id');
+    }
 }

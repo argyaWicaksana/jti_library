@@ -49,7 +49,7 @@
                                         <td>{{ $trs ->amount }}</td>
                                         <td>{{ $trs ->date_borrow }}</td>
                                         <td>{{ $trs ->date_returndata }}</td>
-                                        <td>{{ $trs ->status }}</td>
+                                        <td>{{ $trs ->status->name }}</td>
                                         <td>
                                             <form action="{{ route('transaction.destroy',['transaction'=>$trs->id]) }}" method="POST">
                                                 <a class="btn btn-info" href="{{ route('transaction.show',$trs->id) }}">Show</a>

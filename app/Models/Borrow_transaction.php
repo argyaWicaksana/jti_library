@@ -16,7 +16,7 @@ class Borrow_transaction extends Model
         'amount',
         'date_borrow',
         'date_returndata',
-        'status',
+        'status_id',
     ];
 
     public function return_transaction(){
@@ -29,5 +29,13 @@ class Borrow_transaction extends Model
 
     public function user(){
         return $this->belongsTo(User::class, 'users_id');
+    }
+
+    public function status(){
+        return $this->belongsTo(Status::class);
+    }
+
+    public function bookborrow_transaction(){
+        return $this->belongsToMany(BookBorrow_transaction::class);
     }
 }

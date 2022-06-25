@@ -86,11 +86,13 @@ class DashboardController extends Controller
     public function cart()
     {
         // $borrow = new BookBorrow_transaction;
-        // $cart = Borrow_transaction::where('users_id', Auth::user()->id)->where('status', null)->first();
+        // $cart = Borrow_transaction::where('users_id', Auth::user()->id)->where('status', 'available')->first();
         // if(!empty('cart'))
         // {
-        //     $borrow_book = BookBorrow_transaction::where('borrow_transaction_id', $cart->id)->get();
-        //     $borrow = $borrow_book;
+        //     // dd($cart);
+        //     $borrow_book = BookBorrow_transaction::whereNull('borrow_transaction_id', $cart->id)->get();
+        //     $borrow_book = BookBorrow_transaction::whereNull('amount')->get();
+        //     // $borrow = $borrow_book;
         // }
         //     return view('studentDashboard.cart', compact('cart','borrow'));
         
@@ -101,6 +103,7 @@ class DashboardController extends Controller
             "cart" => $cart,
             "borrow" => $borrow
         ]);
+        return view('studentDashboard.cart', compact('cart','borrow'));
     }
 
     public function destroy($id)
@@ -120,7 +123,7 @@ class DashboardController extends Controller
         $book_borrow = Borrow_transaction::where('id', $id)->first();
         $book_borrow->date_borrow = $request->date_borrow;
         $book_borrow->date_returndata = $request->date_returndata;
-        $book_borrow->status = 'booked';
+        $book_borrow->status_id = 2;
         $book_borrow->save();
 
         $borrow_detail = BookBorrow_transaction::where('borrow_transaction_id', $id)->get();

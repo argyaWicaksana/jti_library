@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Borrow_transaction;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -64,8 +65,9 @@ class TransactionController extends Controller
     public function edit($id)
     {
         $trans = Borrow_transaction::where('id', $id)->first();
+        $status = Status::all();
         // $user = User::all();
-        return view('admin.transaction.edit', compact('trans'));
+        return view('admin.transaction.edit', compact('trans', 'status'));
     }
 
     /**
@@ -78,7 +80,7 @@ class TransactionController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'status' => ['required'],
+            'status_id' => ['required'],
         ];
 
         $data = $request->validate($rules);

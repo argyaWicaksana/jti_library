@@ -20,7 +20,8 @@ class CreateBorrowTransactionsTable extends Migration
             $table->integer('amount');
             $table->date('date_borrow')->nullable();
             $table->date('date_returndata')->nullable();
-            $table->string('status')->nullable();
+            $table->unsignedBigInteger('status_id')->nullable();
+            $table->foreign('status_id')->references('id')->on('status');
             $table->timestamps();
             
         });

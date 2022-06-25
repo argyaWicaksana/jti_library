@@ -21,9 +21,13 @@
                 <form method="post" action="{{ route('transaction.update', $trans->id) }}" id="myForm" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="mb-3">
-                        <label for="status" class="form-label">status</label>
-                        <input type="text" name="status" class="form-control" id="status" value="{{ $trans->status }}" ariadescribedby="status">
+                    <div class="form-group mb-3">
+                        <label for="status_id">Status</label>
+                        <select name="status_id" id="status_id" class="form-control">
+                            @foreach($status as $st)
+                            <option value="{{$st->id}}" {{$trans->status_id == $st->id ? 'selected' : ''}}>{{$st->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
