@@ -117,7 +117,6 @@ class TransactionController extends Controller
             ->orWhere('amount', $keyword )
             ->orWhere('date_borrow', 'like', "%" . $keyword . "%")
             ->orWhere('date_returndata', 'like', "%" . $keyword . "%")
-            ->orWhere('status', 'like', "%" . $keyword . "%")
             ->paginate(3);
         return view('admin.transaction.search', compact('trans'))
             ->with('i', (request()->input('page', 1) - 1) * 3);

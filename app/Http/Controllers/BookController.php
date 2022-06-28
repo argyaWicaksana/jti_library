@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Type;
 use App\Models\Publisher;
+use App\Models\BookBorrow_transaction;
 // use App\Models\Catalog;
 use Illuminate\Http\Request;
 use DB;
@@ -183,9 +184,7 @@ class BookController extends Controller
         if ($book->photo && file_exists(storage_path('app/public/' . $book->photo))) {
             Storage::delete('images/photo/' . $book->photo);
         }
-
-       
-        $book->borrow_transaction()->detach();
+        $book->bookborrow_transaction()->delete();
 
         $book->delete();
         return redirect()->route('book.index')
