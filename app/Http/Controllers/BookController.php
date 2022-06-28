@@ -184,6 +184,7 @@ class BookController extends Controller
             Storage::delete('images/photo/' . $book->photo);
         }
 
+       
         $book->borrow_transaction()->detach();
 
         $book->delete();

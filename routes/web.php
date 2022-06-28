@@ -39,8 +39,8 @@ Route::controller(HomeController::class)->group(function () {
 
 
 Route::controller(DashboardController::class)->group(function () {
-    Route::get('/studentdashboard', 'dashboard');
-    Route::get('/studentdashboard', 'dashboard')->name('/studentdashboard');
+    // Route::get('/studentdashboard', 'dashboard');
+    Route::get('/studentdashboard', 'dashboard')->middleware('is_user')->name('/studentdashboard');
     Route::get('/account', 'account')->name('account');
 });
 
