@@ -11,7 +11,7 @@ class AdminController extends Controller
     {
         $datas = DB::table('users')->where('is_admin',0)->count();
         $datab = DB::table('book')->count();
-        $datat = DB::table('book_borrow_transaction')->count();
+        $datat = DB::table('borrow_transaction')->count();
         // opsional yang datat menunggu table yang digunakan untuk menaruh data transaksu baru bisa dihitung
         return view('admin.dashboard', [
             "title" => 'Dashboard',

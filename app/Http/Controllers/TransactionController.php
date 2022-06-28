@@ -104,7 +104,7 @@ class TransactionController extends Controller
     {
         $trans = Borrow_transaction::find($id);
 
-        // $trans->borrow_transaction()->detach();
+        $trans->bookborrow_transaction()->delete();
 
         $trans->delete();
         return redirect()->route('transaction.index')
@@ -122,16 +122,6 @@ class TransactionController extends Controller
         return view('admin.transaction.search', compact('trans'))
             ->with('i', (request()->input('page', 1) - 1) * 3);
     }
-
-    // public function print_transaction()
-    // {  
-    //     //$student = User::where('id', $id)->first();
-       
-    //     $student = Bor::all();
-    //     // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
-    //     $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
-    //     return $pdf->stream('student.pdf');
-    // }
 
     public function print_transactions()
     {

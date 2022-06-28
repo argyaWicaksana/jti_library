@@ -39,7 +39,7 @@
 </section>
 <!-- ======= Catalog Section ======= -->
 <section id="about" class="about">
-  <div class="container-search">
+  <!-- <div class="container-search">
     <div class="row justify-content-end">
       <div class="col-md-4">
         <form method="get" action="{{ url('search') }}">
@@ -52,12 +52,12 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
   <section id="team" class="team">
     <div class="container">
       <div class="row" data-aos="fade-left">
         @foreach($catalog as $ctg)
-        <div class="col-lg-2 col-md-6 mt-5 mt-md-0">
+        <div class="col-lg-2 col-md-6 mt-5">
           <div class="member" data-aos="zoom-in" data-aos-delay="200">
             <div class="pic">
               @php

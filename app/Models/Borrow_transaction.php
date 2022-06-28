@@ -36,6 +36,6 @@ class Borrow_transaction extends Model
     }
 
     public function bookborrow_transaction(){
-        return $this->belongsToMany(BookBorrow_transaction::class);
+        return $this->hasOne(BookBorrow_transaction::class);
     }
 }
