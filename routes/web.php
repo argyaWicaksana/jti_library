@@ -74,14 +74,15 @@ Route::get('/search',[DashboardController::class, 'search'])->name('studentDashb
 
 
 
-Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
+// Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
 
-Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
-Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
+// Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
+// Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
 
 Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
 Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
 Route::get('print_books', [BookController::class, 'print_books'])->name('print_books');
+Route::get('print_transactions', [TransactionController::class, 'print_transactions'])->name('print_transactions');
 Route::get('/search',[BookController::class, 'search'])->name('admin.book.search');
 Route::get('/search',[StudentController::class, 'search'])->name('admin.student.search');
 Route::get('/search',[TransactionController::class, 'search'])->name('admin.transaction.search');

@@ -7,6 +7,7 @@ use App\Models\Status;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class TransactionController extends Controller
 {
@@ -131,4 +132,15 @@ class TransactionController extends Controller
     //     $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
     //     return $pdf->stream('student.pdf');
     // }
+
+    public function print_transactions()
+    {
+        //$student = User::where('id', $id)->first();
+
+        $transactions = Borrow_transaction::all();
+        // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
+        $pdf = PDF::loadview('print.transactions_pdf', ['transactions' => $transactions]);
+        return $pdf->stream('transactions.pdf');
+
+    }
 }

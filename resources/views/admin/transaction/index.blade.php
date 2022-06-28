@@ -20,7 +20,7 @@
 
                         </ul>
                         <div>
-                            <a class="btn btn-success mt-3" href="{{ route('print_student') }}" target="_blank">Print</a>
+                            <a class="btn btn-success mt-3" href="{{ route('print_transactions') }}" target="_blank">Print</a>
                         </div>
                     </div>
 
