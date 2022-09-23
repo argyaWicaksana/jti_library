@@ -16,7 +16,7 @@
                 $pathImage = '';
                 $mhs->profile_picture ? ($pathImage = 'storage/' . $mhs->profile_picture) : ($pathImage = 'picture/empty.png');
                 @endphp
-                <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
+                <img src="{{ asset('' . $pathImage . '') }}" width="100%" alt="">
             </div>
            
             <div class="col-md-4">

@@ -114,8 +114,8 @@ class TransactionController extends Controller
     {
         $keyword = $request->search;
 
-        $trans = Borrow_transaction::Where('users_id' , $keyword)
-            ->orWhere('amount', $keyword )
+        $trans = Borrow_transaction::Where('users_id', $keyword)
+            ->orWhere('amount', $keyword)
             ->orWhere('date_borrow', 'like', "%" . $keyword . "%")
             ->orWhere('date_returndata', 'like', "%" . $keyword . "%")
             ->paginate(3);
@@ -131,6 +131,5 @@ class TransactionController extends Controller
         // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
         $pdf = PDF::loadview('print.transactions_pdf', ['transactions' => $transactions]);
         return $pdf->stream('transactions.pdf');
-
     }
 }

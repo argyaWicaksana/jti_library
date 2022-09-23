@@ -17,10 +17,12 @@ class DashboardController extends Controller
         $catalog = Book::all();
         $student = User::find(Auth::user()->id);
         return view(
-            'studentDashboard.dashboard', 
-            ["title" => 'Dashboard',
-            "catalog" => $catalog,
-            "student"=> compact('student')]
+            'studentDashboard.dashboard',
+            [
+                "title" => 'Dashboard',
+                "catalog" => $catalog,
+                "student" => compact('student')
+            ]
         );
     }
 
@@ -95,7 +97,7 @@ class DashboardController extends Controller
         //     // $borrow = $borrow_book;
         // }
         //     return view('studentDashboard.cart', compact('cart','borrow'));
-        
+
         $cart = Borrow_transaction::all();
         $borrow = BookBorrow_transaction::all();
         return view('studentDashboard.cart', [
@@ -103,7 +105,7 @@ class DashboardController extends Controller
             "cart" => $cart,
             "borrow" => $borrow
         ]);
-        return view('studentDashboard.cart', compact('cart','borrow'));
+        return view('studentDashboard.cart', compact('cart', 'borrow'));
     }
 
     public function destroy($id)
@@ -127,13 +129,13 @@ class DashboardController extends Controller
         $book_borrow->save();
 
         $borrow_detail = BookBorrow_transaction::where('borrow_transaction_id', $id)->get();
-        foreach ($borrow_detail as $borrow){
+        foreach ($borrow_detail as $borrow) {
             $book = Book::where('id', $borrow->book_id)->first();
-            $book->stock = $book->stock-$borrow->number_book_borrow;
+            $book->stock = $book->stock - $borrow->number_book_borrow;
             $book->update();
         }
-        
-        
+
+
         return redirect()->route('/studentdashboard');
     }
 
@@ -142,7 +144,7 @@ class DashboardController extends Controller
         $student = User::find(Auth::user()->id);
         return view('studentDashboard.account', [
             "title" => 'Account',
-            "student"=>compact('student')
+            "student" => compact('student')
         ]);
     }
 }

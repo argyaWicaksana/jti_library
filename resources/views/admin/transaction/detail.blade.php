@@ -16,7 +16,7 @@
                             <li class="list-group-item"><b>Book Amount: </b>{{$trans->amount}}</li>
                             <li class="list-group-item"><b>Date Borrow: </b>{{$trans->date_borrow}}</li>
                             <li class="list-group-item"><b>Date Return: </b>{{$trans->date_returndata}}</li>
-                            <li class="list-group-item"><b>Status: </b>{{$trans->status}}</li>
+                            <li class="list-group-item"><b>Status: </b>{{$trans->status->name}}</li>
                         </ul>
 
                     </div>
