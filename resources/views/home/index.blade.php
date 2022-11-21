@@ -8,7 +8,7 @@
     <div class="row row-home justify-content-between">
       <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
         <div data-aos="zoom-out">
-          <h1>Welcome to <span>JTI E-Library</span></h1>
+          <h1>Welcome to <span data-id="homepage-title">JTI E-Library</span></h1>
           <h2>Get your book and spend time for read more</h2>
           <div class="text-center text-lg-start">
             <a href="#about" class="btn-get-started scrollto">Catalog</a>

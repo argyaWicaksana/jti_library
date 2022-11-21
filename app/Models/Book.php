@@ -22,8 +22,6 @@ class Book extends Model
         'isbn_issn',
         'type_id',
         'publisher_id',
-        //type_id
-        //publisher_id
         'description',
     ];
     

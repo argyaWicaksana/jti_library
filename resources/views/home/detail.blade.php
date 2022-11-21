@@ -81,7 +81,7 @@
                         <a class="nav-link" href="/contactus">Contact Us</a>
                     </li>
                     <li class="nav-link scrollto">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/login" data-id="homepage-login-btn">Login</a>
                     </li>
                 </ul>
             </div>

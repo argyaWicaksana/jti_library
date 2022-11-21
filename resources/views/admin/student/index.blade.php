@@ -69,7 +69,7 @@
                                         <td>
                                             <form action="{{ route('student.destroy',['student'=>$mhs->id]) }}" method="POST">
                                                 <a class="btn btn-info" href="{{ route('student.show',$mhs->id) }}">Show</a>
-                                                <a class="btn btn-primary" href="{{ route('student.edit',$mhs->id) }}">Edit</a>
+                                                <a data-id="edit-student" class="btn btn-primary" href="{{ route('student.edit',$mhs->id) }}">Edit</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Delete</button>

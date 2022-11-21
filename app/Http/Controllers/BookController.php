@@ -55,8 +55,8 @@ class BookController extends Controller
             'stock' => ['required'],
             'author' => ['required', 'string', 'max:255'],
             'isbn_issn' => ['required', 'string', 'max:20'],
-            'type_id' => ['required'],
-            'publisher_id' => ['required'],
+            'type_id' => ['nullable'],
+            'publisher_id' => ['nullable'],
             // 'catalog_id' => ['required'],
             'description' => ['required', 'string'],
         ];
