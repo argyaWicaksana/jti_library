@@ -6,11 +6,11 @@ use App\Models\Book;
 use App\Models\Type;
 use App\Models\Publisher;
 use App\Models\BookBorrow_transaction;
+use Barryvdh\DomPDF\Facade\Pdf;
 // use App\Models\Catalog;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Storage;
-use PDF;
 
 class BookController extends Controller
 {
@@ -182,7 +182,7 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         if ($book->photo && file_exists(storage_path('app/public/' . $book->photo))) {
-            Storage::delete('images/photo/' . $book->photo);
+            Storage::delete($book->photo);
         }
         $book->bookborrow_transaction()->delete();
 
@@ -211,7 +211,7 @@ class BookController extends Controller
 
         $books = Book::all();
         // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
-        $pdf = PDF::loadview('print.books_pdf', ['books' => $books]);
+        $pdf = Pdf::loadview('print.books_pdf', ['books' => $books]);
         return $pdf->stream('books.pdf');
     }
 }
