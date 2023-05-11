@@ -21,7 +21,7 @@
                 <form method="post" action="{{ route('book.store') }}" id="myForm" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="title" class="form-label">title</label>
+                        <label for="title" class="form-label">Title</label>
                         <input type="title" class="form-control" id="title" name="title">
                     </div>
                     <div class="mb-3">
@@ -35,7 +35,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="year" class="form-label">year</label>
+                        <label for="year" class="form-label">Year</label>
                         <input type="date" class="form-control" id="year" name="year">
                     </div>
                     <div class="mb-3">
@@ -43,18 +43,18 @@
                         <input type="status" class="form-control" id="status" name="status">
                     </div>
                     <div class="mb-3">
-                        <label for="stock" class="form-label">stock</label>
+                        <label for="stock" class="form-label">Stock</label>
                         <input type="stock" class="form-control" id="stock" name="stock">
                     </div>
                     <div class="mb-3">
-                        <label for="author" class="form-label">author</label>
+                        <label for="author" class="form-label">Author</label>
                         <input type="author" class="form-control" id="author" name="author">
                     </div>
                     <div class="mb-3">
                         <label for="isbn_issn" class="form-label">ISBN/ISSN</label>
                         <input type="isbn_issn" class="form-control" id="isbn_issn" name="isbn_issn">
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="type_id" class="form-label">Type</label>
                         <select name="type_id" class="form-control">
                             <option value="">--Select--</option>
@@ -63,8 +63,8 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="publisher_id" class="form-label mt-3">Publisher</label>
+                    <div class="mb-3">
+                        <label for="publisher_id" class="form-label">Publisher</label>
                         <select name="publisher_id" class="form-control">
                             <option value="">--Select--</option>
                             @foreach ($publisher as $pbs)
@@ -77,6 +77,7 @@
                         <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-danger" href="{{ route('book.index') }}">Cancel</a>
                 </form>
             </div>
         </div>

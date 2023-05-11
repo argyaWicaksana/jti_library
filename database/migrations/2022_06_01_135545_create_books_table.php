@@ -23,10 +23,10 @@ class CreateBooksTable extends Migration
             $table->integer('stock');
             $table->string('author');
             $table->string('isbn_issn');
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('type');
-            $table->unsignedBigInteger('publisher_id');
-            $table->foreign('publisher_id')->references('id')->on('publisher');
+            $table->unsignedBigInteger('type_id')->nullable();
+            $table->foreign('type_id')->references('id')->on('type')->nullOnDelete();
+            $table->unsignedBigInteger('publisher_id')->nullable();
+            $table->foreign('publisher_id')->references('id')->on('publisher')->nullOnDelete();
             $table->string('description');
             $table->timestamps();
         });

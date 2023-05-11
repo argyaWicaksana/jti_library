@@ -16,12 +16,12 @@ class CreateBorrowTransactionsTable extends Migration
         Schema::create('borrow_transaction', function (Blueprint $table) {
             $table->id('id');
             $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('users')->cascadeOnDelete();
             $table->integer('amount');
             $table->date('date_borrow')->nullable();
             $table->date('date_returndata')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('status_id')->references('id')->on('status')->cascadeOnDelete();
             $table->timestamps();
         });
     }

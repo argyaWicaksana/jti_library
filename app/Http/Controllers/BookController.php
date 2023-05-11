@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Type;
 use App\Models\Publisher;
-use App\Models\BookBorrow_transaction;
+use App\Models\Status;
 use Barryvdh\DomPDF\Facade\Pdf;
-// use App\Models\Catalog;
 use Illuminate\Http\Request;
-use DB;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
@@ -34,8 +32,7 @@ class BookController extends Controller
     public function create()
     {
         $type = Type::all();
-        $publisher = Publisher::all(); //get data from class table
-        // $catalog = Catalog::all();
+        $publisher = Publisher::all();
         return view('admin.book.create', compact('type', 'publisher'));
     }
 
@@ -57,49 +54,16 @@ class BookController extends Controller
             'isbn_issn' => ['required', 'string', 'max:20'],
             'type_id' => ['nullable'],
             'publisher_id' => ['nullable'],
-            // 'catalog_id' => ['required'],
             'description' => ['required', 'string'],
         ];
 
         $data = $request->validate($rules);
 
         if ($request->file('photo')) {
-            $data['photo'] = $request->file('photo')->store('images/photo');
+            $data['photo'] = $request->file('photo')->store('images/book');
         }
 
         Book::create($data);
-
-        // return redirect()->route('student.index')
-        //     ->with('success', 'Student succesfully added');
-
-        // $request->validate([
-        //     'title' => ['required', 'string', 'max:255'],
-        //     'photo' => ['image'],
-        //     'year' => ['required', 'date'],
-        //     'status' => ['required', 'string', 'max:100'],
-        //     'stock' => ['required'],
-        //     'author' => ['required', 'string', 'max:255'],
-        //     'isbn_issn' => ['required', 'string', 'max:20'],
-        //     'type_id' => ['required'],
-        //     'publisher_id' => ['required'],
-        //     'description' => ['required', 'string'],
-        // ]);
-        // if ($request->file('photo')) {
-        //     $photo_name = $request->file('photo')->store('photo', 'images/photo');
-        // }
-
-        // $book = new Book;
-        // $book->title = $request->title;
-        // $book->photo = $photo_name;
-        // $book->year = $request->year;
-        // $book->status = $request->status;
-        // $book->stock = $request->stock;
-        // $book->author = $request->author;
-        // $book->isbn_issn = $request->isbn_issn;
-        // $book->type_id = $request->type_id;
-        // $book->publisher_id = $request->publisher_id;
-        // $book->description = $request->description;
-        // $book->save();
 
         return redirect()->route('book.index')
             ->with('success', 'book succesfully added');
@@ -152,7 +116,6 @@ class BookController extends Controller
             'isbn_issn' => ['required', 'string', 'max:20'],
             'type_id' => ['required'],
             'publisher_id' => ['required'],
-            // 'catalog_id' => ['required'],
             'description' => ['required', 'string'],
         ];
 
@@ -207,10 +170,7 @@ class BookController extends Controller
 
     public function print_books()
     {
-        //$student = User::where('id', $id)->first();
-
         $books = Book::all();
-        // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
         $pdf = Pdf::loadview('print.books_pdf', ['books' => $books]);
         return $pdf->stream('books.pdf');
     }

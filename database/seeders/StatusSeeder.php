@@ -15,7 +15,7 @@ class StatusSeeder extends Seeder
     public function run()
     {
         $status = [
-            ['name' => 'on process',],
+            ['name' => 'On process',],
             ['name' => 'Booked',],
             ['name' => 'Borrowed',],
             ['name' => 'Returned',],

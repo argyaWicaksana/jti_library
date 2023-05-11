@@ -16,9 +16,9 @@ class CreateBorrowTransactionUsersTable extends Migration
         Schema::create('borrow_transaction_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->unsignedBigInteger('borrow_transaction_id');
-            $table->foreign('borrow_transaction_id')->references('id')->on('borrow_transaction');
+            $table->foreign('borrow_transaction_id')->references('id')->on('borrow_transaction')->cascadeOnDelete();
         });
     }
 

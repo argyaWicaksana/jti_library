@@ -82,6 +82,7 @@
                         <input type="description" name="description" class="form-control" id="description" value="{{ $Book->description }}" ariadescribedby="description">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-danger" href="{{ route('book.index') }}">Cancel</a>
                 </form>
             </div>
         </div>
