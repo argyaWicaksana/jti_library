@@ -34,10 +34,17 @@ class UserSeeder extends Seeder
                 'username' => 'user',
                 'is_admin' => '0',
                 'password' => Hash::make(12345678),
+            ],
+            [
+                'name' => 'Argya',
+                'username' => 'argya',
+                'is_admin' => '0',
+                'password' => Hash::make(12345678),
             ]
-            ];
-            foreach($user as $key => $value){
-                User::create($value);
-            }
+        ];
+        
+        foreach($user as $value){
+            User::create($value);
+        }
     }
 }

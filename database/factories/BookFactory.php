@@ -17,15 +17,15 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            'title'=> 'kompre daily',
-            'year'=>2022,
-            'status'=>'available',
-            'stock'=>2,
-            'author'=>'kompre',
-            'isbn_issn'=>'21412412',
+            'title'=> $this->faker->words(3, true),
+            'year'=> $this->faker->dateTimeBetween('-10 years'),
+            'status'=> 'available',
+            'stock'=> $this->faker->numberBetween(1, 10),
+            'author'=> $this->faker->name(),
+            'isbn_issn'=> $this->faker->numerify('##########'),
             'type_id'=>  Type::all()->random()->id,
             'publisher_id'=> Publisher::all()->random()->id,
-            'description'=>'sfafsafas',
+            'description'=> $this->faker->sentences(3, true),
         ];
     }
 

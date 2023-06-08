@@ -12,7 +12,6 @@ class Borrow_transaction extends Model
     protected $primaryKey = 'id'; 
   
     protected $fillable = [
-        //id
         'amount',
         'date_borrow',
         'date_returndata',
@@ -23,12 +22,12 @@ class Borrow_transaction extends Model
         return $this->belongsTo(Return_transaction::class);
     }
     
-    public function book(){
-        return $this->belongsTo(Book::class);
+    public function books(){
+        return $this->belongsToMany(Book::class)->withPivot('number_book_borrow', 'id');
     }
 
     public function user(){
-        return $this->belongsTo(User::class, 'users_id');
+        return $this->belongsTo(User::class);
     }
 
     public function status(){
@@ -36,6 +35,6 @@ class Borrow_transaction extends Model
     }
 
     public function bookborrow_transaction(){
-        return $this->hasOne(BookBorrow_transaction::class);
+        return $this->hasMany(BookBorrow_transaction::class);
     }
 }

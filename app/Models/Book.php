@@ -12,7 +12,6 @@ class Book extends Model
     protected $primaryKey = 'id'; 
   
     protected $fillable = [
-        //id
         'title',
         'photo',
         'year',
@@ -33,12 +32,7 @@ class Book extends Model
         return $this->belongsTo(Type::class);
     }
 
-    // public function borrow_transaction(){
-    //     return $this->hasMany(Borrow_transaction::class);
+    // public function bookborrow_transaction(){
+    //     return $this->hasMany(BookBorrow_transaction::class);
     // }
-
-    public function bookborrow_transaction(){
-        return $this->hasMany(BookBorrow_transaction::class);
-    }
-
 }

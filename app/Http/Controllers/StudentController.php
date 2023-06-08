@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\App;
 use PDF;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Borrow_transaction;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -22,7 +23,6 @@ class StudentController extends Controller
     public function index()
     {
         $student = User::paginate(3);
-        // $posts = Student::orderBy('id','asc')->paginate(3);
         return view('admin.student.index', compact('student'));
     }
 
@@ -57,28 +57,6 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'nim' => ['required', 'string', 'max:20'],
-        //     'profile_picture' => ['image'],
-        //     'ktm_picture' => ['image'],
-        //     'username' => ['required', 'string', 'max:20'],
-        //     'password' => ['required', 'string', 'min:8'],
-        // ]);
-        // $input = $request->all();
-        // if ($request->hasFile('ktm_picture') && $request->hasFile('profile_picture')) {
-        //     $destination_path_ktm = 'images/ktm';
-        //     $destination_path_profile =  'images/profil';
-        //     $ktm = $request->file('ktm_picture');
-        //     $profile = $request->file('profile_picture');
-        //     $ktm_name = $ktm->getClientOriginalName();
-        //     $profile_name = $profile->getClientOriginalName();
-        //     $request->file('ktm_picture')->storeAs($destination_path_ktm, $ktm_name);
-        //     $request->file('profile_picture')->storeAs($destination_path_profile, $profile_name);
-
-        //     $input['ktm_picture'] = $ktm_name;
-        //     $input['profile_picture'] = $profile_name;
-        // }
         $rules = [
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:20'],
@@ -97,15 +75,6 @@ class StudentController extends Controller
         $data['password']= Hash::make($data['password']);
         
         User::create($data);
-        // $student = new Student();
-        // $student->name = $request->get('name');
-        // $student->nim = $request->get('nim');
-        // $student->profile_picture = $profile;
-        // $student->ktm_picture = $ktm;
-        // $student->username = $request->get('username');
-        // $student->password = $request->get('password');
-        // $student->save();
-
 
         return redirect()->route('student.index')
             ->with('success', 'Student succesfully added');
@@ -145,35 +114,6 @@ class StudentController extends Controller
      */
     public function update(Request $request, User $student)
     {
-        // $rules = [
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'nim' => ['required', 'string', 'max:20'],
-        //     'profile_picture' => ['image'],
-        //     'ktm_picture' => ['image'],
-        //     'username' => ['required', 'string', 'max:20'],
-        //     'password' => ['required', 'string', 'min:8'],
-        // ];
-        
-        // $data = $request->validate($rules);
-        
-        // if ($student->profile_picture && file_exists(storage_path('app/public/images/profil/' . $student->profile_picture))) {
-        //     Storage::delete('public/images/profil/' . $student->profile_picture);
-        // }
-        
-        // if($request->hasFile('ktm_picture') && $request->hasFile('profile_picture')){
-        //     $ktm = $request->file('ktm_picture');
-        //     $profile = $request->file('profile_picture');
-        //     $ktm_name = $ktm->getClientOriginalName();
-        //     $profile_name = $profile->getClientOriginalName();
-        //     $data['profile_picture'] = $request->file('profile_picture')->storeAs('images/profil/', $profile_name);
-        //     $data['ktm_picture'] = $request->file('ktm_picture')->storeAs('images/ktm/', $ktm_name);
-
-        //     $data['ktm_picture'] = $ktm_name;
-        //     $data['profile_picture'] = $profile_name;
-        // }
-        // Student::where('id', $student->id)
-        // -> update($data);
-
         $rules = [
             'name' => ['required', 'string', 'max:255'],
             'nim' => ['required', 'string', 'max:20'],
@@ -226,17 +166,13 @@ class StudentController extends Controller
 
     public function print_student()
     {  
-        //$student = User::where('id', $id)->first();
-       
         $student = User::all();
-        // $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
         $pdf = PDF::loadview('print.student_pdf', ['student'=> $student]);
         return $pdf->stream('student.pdf');
     }
     public function transaction()
     {
-        $trans = Borrow_transaction::paginate(3);
-        // $posts = Student::orderBy('id','asc')->paginate(3);
-        return view('studentDashboard.transaction', compact('trans'));
+        $tranc = Borrow_transaction::where('user_id', Auth::id())->paginate(3);
+        return view('studentDashboard.transaction', compact('tranc'));
     }
 }

@@ -10,13 +10,13 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li class="nav-item">
-                    <a class="nav-link scrollto " href="/studentdashboard">Home</a></li>
+                    <a class="nav-link scrollto " href="/student-dashboard">Home</a></li>
 
                 <li class="nav-item">
                     <a class="nav-link scrollto" href="/cart">Cart</a></li>
                   
                 <li class="nav-item">
-                    <a class="nav-link scrollto" href="/studenttransaction">Transaction</a></li>   
+                    <a class="nav-link scrollto" href="/student-transaction">Transaction</a></li>   
                     
                 <li class="nav-item">
                     <a class="nav-link scrollto" href="/account">Account</a></li>

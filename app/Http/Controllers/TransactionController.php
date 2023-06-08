@@ -85,9 +85,18 @@ class TransactionController extends Controller
         ];
 
         $data = $request->validate($rules);
+        $borrow_tranc = Borrow_transaction::where('id', $id)->first();
 
-        Borrow_transaction::where('id', $id)
-            ->update($data);
+        if ($data['status_id'] == 4) {
+            $borrowed_books = $borrow_tranc->books;
+
+            foreach ($borrowed_books as $book) {
+                $book->stock += $book->pivot->number_book_borrow;
+                $book->update();
+            }
+        }
+
+        $borrow_tranc->update($data);
 
         //if the data successfully updated, will return to main page
         return redirect()->route('transaction.index')

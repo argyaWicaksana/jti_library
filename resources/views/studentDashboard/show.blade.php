@@ -87,7 +87,7 @@
             <div class="collapse navbar-collapse justify-content-md-end" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link scrollto " href="/studentdashboard">Home</a>
+                        <a class="nav-link scrollto " href="/student-dashboard">Home</a>
                     </li>
 
                     <li class="nav-item">
@@ -95,7 +95,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link scrollto" href="/studenttransaction">Transaction</a>
+                        <a class="nav-link scrollto" href="/student-transaction">Transaction</a>
                     </li>
                     {{-- transaction route dan controllernya belum di buat --}}
                     <li class="nav-item">
@@ -142,7 +142,7 @@
                             <b>Amount :</b>
                         </div>
                         <div class="col-md-2 text-start">
-                            <input class="form-control input-amount" type="text" name="number_book_borrow">
+                            <input class="form-control input-amount" type="text" name="number_book_borrow" required>
                         </div>
                     </div>
                     <button class="btn btn-outline-primary" role="button" type="submit">Add to Cart</button>

@@ -15,8 +15,8 @@ class CreateBorrowTransactionsTable extends Migration
     {
         Schema::create('borrow_transaction', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->integer('amount');
             $table->date('date_borrow')->nullable();
             $table->date('date_returndata')->nullable();

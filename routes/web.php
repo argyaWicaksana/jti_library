@@ -40,15 +40,15 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(DashboardController::class)->group(function () {
     // Route::get('/studentdashboard', 'dashboard');
-    Route::get('/studentdashboard', 'dashboard')->middleware('is_user')->name('/studentdashboard');
+    Route::get('/student-dashboard', 'dashboard')->middleware('is_user')->name('/studentdashboard');
     Route::get('/account', 'account')->name('account');
 });
 
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admindashboard', 'dashboard')->middleware('is_admin')->name('/admindashboard');
-    Route::get('/admintransaction', 'transaction')->middleware('is_admin');
+    Route::get('/admin-dashboard', 'dashboard')->middleware('is_admin')->name('/admindashboard');
+    Route::get('/admin-transaction', 'transaction')->middleware('is_admin');
 });
-Route::get('/studenttransaction', [StudentController::class, 'transaction'])->name('/studenttransaction');
+Route::get('/student-transaction', [StudentController::class, 'transaction'])->name('/studenttransaction');
 
 Auth::routes();
 //Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
