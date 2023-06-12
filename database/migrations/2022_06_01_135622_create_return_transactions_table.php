@@ -19,6 +19,7 @@ class CreateReturnTransactionsTable extends Migration
             $table->unsignedBigInteger('borrow_transaction_id');
             $table->foreign('borrow_transaction_id')->references('id')->on('borrow_transaction')->cascadeOnDelete();
             $table->date('date_returnday');
+            $table->timestamps();
         });
     }
 

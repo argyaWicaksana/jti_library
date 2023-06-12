@@ -115,10 +115,9 @@ class DashboardController extends Controller
 
     public function account()
     {
-        $student = User::find(Auth::user()->id);
         return view('studentDashboard.account', [
             "title" => 'Account',
-            "student" => compact('student')
+            "student" => Auth::user()
         ]);
     }
 }

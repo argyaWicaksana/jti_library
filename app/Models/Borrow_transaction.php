@@ -19,7 +19,7 @@ class Borrow_transaction extends Model
     ];
 
     public function return_transaction(){
-        return $this->belongsTo(Return_transaction::class);
+        return $this->hasOne(Return_transaction::class);
     }
     
     public function books(){

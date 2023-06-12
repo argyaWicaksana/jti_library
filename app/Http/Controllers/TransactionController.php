@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Borrow_transaction;
+use App\Models\Return_transaction;
 use App\Models\Status;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use PDF;
@@ -90,10 +92,24 @@ class TransactionController extends Controller
         if ($data['status_id'] == 4) {
             $borrowed_books = $borrow_tranc->books;
 
+            // update jumlah buku
             foreach ($borrowed_books as $book) {
                 $book->stock += $book->pivot->number_book_borrow;
                 $book->update();
             }
+
+            // create data di tabel return transaction
+            $returnDate = Carbon::parse($borrow_tranc->date_returndata);
+            $actualReturnDate = Carbon::now();
+            $diffDate = $returnDate->diffInDays($actualReturnDate, false);
+            // jika telat mengembalikan, denda 10rb per hari
+            $fine = $diffDate < 0 ? abs($diffDate) * 10000 : 0;
+
+            Return_transaction::create([
+                'fine' => $fine,
+                'borrow_transaction_id' => $id,
+                'date_returnday' => $actualReturnDate->toDateTimeString()
+            ]);
         }
 
         $borrow_tranc->update($data);

@@ -39,7 +39,6 @@ Route::controller(HomeController::class)->group(function () {
 
 
 Route::controller(DashboardController::class)->group(function () {
-    // Route::get('/studentdashboard', 'dashboard');
     Route::get('/student-dashboard', 'dashboard')->middleware('is_user')->name('/studentdashboard');
     Route::get('/account', 'account')->name('account');
 });
@@ -51,14 +50,9 @@ Route::controller(AdminController::class)->group(function () {
 Route::get('/student-transaction', [StudentController::class, 'transaction'])->name('/studenttransaction');
 
 Auth::routes();
-//Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [LoginController::class, 'logout'])->name('/logout');
-
-
-//Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'create'])->name('register');
-
 
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
@@ -71,13 +65,6 @@ Route::get('/cart', [DashboardController::class, 'cart'])->name('studentDashboar
 Route::delete('/destroy/{id}', [DashboardController::class, 'destroy'])->name('studentDashboard.destroy');
 Route::post('/update/{id}', [DashboardController::class, 'update'])->name('studentDashboard.update');
 Route::get('/search', [DashboardController::class, 'search'])->name('studentDashboard.search');
-
-
-
-// Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
-
-// Route::resource('/dashboard/type',AdminTypeController::class)->except('show')->middleware('admin');
-// Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
 
 Route::resource('/dashboard/type', AdminTypeController::class)->except('show')->middleware('admin');
 Route::get('print_student', [StudentController::class, 'print_student'])->name('print_student');
