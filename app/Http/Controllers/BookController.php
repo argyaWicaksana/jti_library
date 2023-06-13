@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Type;
 use App\Models\Publisher;
-use App\Models\Status;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -19,8 +18,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $book = Book::paginate(3);
-        // $posts = book::orderBy('id','asc')->paginate(3);
+        $book = Book::filter(request(['search']))->paginate(3)->withQueryString();
         return view('admin.book.index', compact('book'));
     }
 

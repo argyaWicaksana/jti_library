@@ -53,4 +53,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Borrow_transaction::class);
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+            $query->where(
+                fn ($query) =>
+                $query->where('name', 'like', '%' . $search . '%')
+            )
+        );
+    }
 }

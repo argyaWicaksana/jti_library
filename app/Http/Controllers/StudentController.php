@@ -22,7 +22,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = User::paginate(3);
+        $student = User::filter(request(['search']))->paginate(3)->withQueryString();
         return view('admin.student.index', compact('student'));
     }
 

@@ -12,9 +12,9 @@
                                 <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
                             </li>
                             <li class="nav-item">
-                                <form class="search-form" action="{{ url('search') }}">
+                                <form class="search-form" action="{{ url('student') }}">
                                     <i class="icon-search"></i>
-                                    <input type="search" name="search" class="form-control" placeholder="Search Here" title="Search here">
+                                    <input type="search" name="search" class="form-control" placeholder="Student Name" title="Search here">
                                 </form>
                             </li>
 

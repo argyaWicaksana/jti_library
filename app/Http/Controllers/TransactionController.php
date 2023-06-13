@@ -124,7 +124,7 @@ class TransactionController extends Controller
     {
         $keyword = $request->search;
 
-        $trans = Borrow_transaction::Where('users_id', $keyword)
+        $trans = Borrow_transaction::Where('user_id', $keyword)
             ->orWhere('amount', $keyword)
             ->orWhere('date_borrow', 'like', "%" . $keyword . "%")
             ->orWhere('date_returndata', 'like', "%" . $keyword . "%")
