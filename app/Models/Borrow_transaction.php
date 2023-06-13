@@ -8,33 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Borrow_transaction extends Model
 {
     use HasFactory;
-    protected $table='borrow_transaction'; 
-    protected $primaryKey = 'id'; 
-  
-    protected $fillable = [
-        'amount',
-        'date_borrow',
-        'date_returndata',
-        'status_id',
-    ];
+    protected $table = 'borrow_transaction';
+    protected $primaryKey = 'id';
+    protected $guarded = ['id'];
 
-    public function return_transaction(){
-        return $this->hasOne(Return_transaction::class);
-    }
-    
-    public function books(){
+    public function books()
+    {
         return $this->belongsToMany(Book::class)->withPivot('number_book_borrow', 'id');
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function status(){
+    public function status()
+    {
         return $this->belongsTo(Status::class);
     }
 
-    public function bookborrow_transaction(){
+    public function bookborrow_transaction()
+    {
         return $this->hasMany(BookBorrow_transaction::class);
     }
 }

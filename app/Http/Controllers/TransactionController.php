@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Borrow_transaction;
 use App\Models\Return_transaction;
 use App\Models\Status;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use PDF;
 
 class TransactionController extends Controller
@@ -20,8 +18,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $trans = Borrow_transaction::paginate(3);
-        // $posts = Student::orderBy('id','asc')->paginate(3);
+        $trans = Borrow_transaction::orderBy('created_at', 'desc')->paginate(3);
         return view('admin.transaction.index', compact('trans'));
     }
 
@@ -87,6 +84,7 @@ class TransactionController extends Controller
         ];
 
         $data = $request->validate($rules);
+        $data['actual_return'] = Carbon::now()->toDateTimeString();
         $borrow_tranc = Borrow_transaction::where('id', $id)->first();
 
         if ($data['status_id'] == 4) {
@@ -97,19 +95,6 @@ class TransactionController extends Controller
                 $book->stock += $book->pivot->number_book_borrow;
                 $book->update();
             }
-
-            // create data di tabel return transaction
-            $returnDate = Carbon::parse($borrow_tranc->date_returndata);
-            $actualReturnDate = Carbon::now();
-            $diffDate = $returnDate->diffInDays($actualReturnDate, false);
-            // jika telat mengembalikan, denda 10rb per hari
-            $fine = $diffDate < 0 ? abs($diffDate) * 10000 : 0;
-
-            Return_transaction::create([
-                'fine' => $fine,
-                'borrow_transaction_id' => $id,
-                'date_returnday' => $actualReturnDate->toDateTimeString()
-            ]);
         }
 
         $borrow_tranc->update($data);

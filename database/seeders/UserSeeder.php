@@ -26,18 +26,21 @@ class UserSeeder extends Seeder
             [
                 'name' => 'admin',
                 'username' => 'admin',
+                'nim' => '0000000000',
                 'is_admin' => '1',
                 'password' => Hash::make(12345678),
             ],
             [
                 'name' => 'user',
                 'username' => 'user',
+                'nim' => '1839384211',
                 'is_admin' => '0',
                 'password' => Hash::make(12345678),
             ],
             [
                 'name' => 'Argya',
                 'username' => 'argya',
+                'nim' => '2141720134',
                 'is_admin' => '0',
                 'password' => Hash::make(12345678),
             ]

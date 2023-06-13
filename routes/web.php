@@ -56,7 +56,7 @@ Route::post('/register', [RegisterController::class, 'create'])->name('register'
 
 Route::resource('student', StudentController::class);
 Route::resource('book', BookController::class);
-Route::resource('transaction', TransactionController::class);
+Route::resource('transaction', TransactionController::class)->middleware('auth');
 Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('home.detail');
 Route::get('/search', [HomeController::class, 'search'])->name('home.search');
 Route::get('/show/{id}', [DashboardController::class, 'show'])->name('studentDashboard.show'); //pakai logika ini untuk akun
