@@ -29,7 +29,8 @@
                                             <th scope="col">Date Borrow</th>
                                             <th scope="col">Date Return</th>
                                             <th scope="col">Actual Return</th>
-                                            <th scope="col">fine</th>
+                                            <th scope="col">Fine</th>
+                                            <th scope="col">Fine Status</th>
                                             <th scope="col">Status</th>
                                             <th width="280px">Action</th>
                                         </tr>
@@ -52,6 +53,11 @@
                                                     }
                                                 @endphp
                                                 <td>{{ $fine ?? '-' }}</td>
+                                                @if (!is_null($trs->fine_paid))
+                                                    <td>{{ $trs->fine_paid ? 'Paid':'Unpaid' }}</td>
+                                                @else
+                                                    <td>-</td>
+                                                @endif
                                                 <td>{{ $trs->status->name }}</td>
                                                 <td>
                                                     <form

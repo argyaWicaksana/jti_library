@@ -52,8 +52,9 @@ class TransactionController extends Controller
     public function show($id)
     {
         $trans = Borrow_transaction::where('id', $id)->first();
+        $books = $trans->books;
 
-        return view('admin.transaction.detail', ['trans' => $trans]);
+        return view('admin.transaction.detail', compact('books'));
     }
 
     /**
@@ -66,7 +67,7 @@ class TransactionController extends Controller
     {
         $trans = Borrow_transaction::where('id', $id)->first();
         $status = Status::all();
-        // $user = User::all();
+
         return view('admin.transaction.edit', compact('trans', 'status'));
     }
 
@@ -80,21 +81,35 @@ class TransactionController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'status_id' => ['required'],
+            'status_id' => ['required', 'integer'],
+            'fine_paid' => ['boolean'],
         ];
 
         $data = $request->validate($rules);
-        $data['actual_return'] = Carbon::now()->toDateTimeString();
         $borrow_tranc = Borrow_transaction::where('id', $id)->first();
 
-        if ($data['status_id'] == 4) {
+        if ($data['status_id'] == 4 && $borrow_tranc->status_id != 4) {
+            $data['actual_return'] = Carbon::now()->toDateTimeString();
+            // $data['actual_return'] = '2023-06-17';
+
+            // check if deserve fine
+            $returnDate = Carbon::parse($borrow_tranc->date_returndata);
+            $actualReturn = Carbon::parse($data['actual_return']);
+            $diffDate = $returnDate->diffInDays($actualReturn, false);
+            $data['fine_paid'] = $diffDate > 0 ? false : null;
+
             $borrowed_books = $borrow_tranc->books;
 
-            // update jumlah buku
+            // update amount book
             foreach ($borrowed_books as $book) {
                 $book->stock += $book->pivot->number_book_borrow;
                 $book->update();
             }
+        }
+
+        if ($data['status_id'] == 3) {
+            $data['actual_return'] = null;
+            $data['fine_paid'] = null;
         }
 
         $borrow_tranc->update($data);

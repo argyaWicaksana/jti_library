@@ -21,6 +21,7 @@ class CreateBorrowTransactionsTable extends Migration
             $table->date('date_borrow')->nullable();
             $table->date('date_returndata')->nullable();
             $table->date('actual_return')->nullable();
+            $table->boolean('fine_paid')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('status')->cascadeOnDelete();
             $table->timestamps();
