@@ -18,7 +18,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $trans = Borrow_transaction::orderBy('created_at', 'desc')->paginate(3);
+        $trans = Borrow_transaction::filter(request(['book_status', 'fine_status']))
+            ->orderBy('created_at', 'desc')
+            ->paginate(3)
+            ->withQueryString();
         return view('admin.transaction.index', compact('trans'));
     }
 

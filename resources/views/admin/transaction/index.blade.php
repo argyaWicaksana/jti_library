@@ -6,9 +6,24 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="home-tab">
-                        <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                        <div class="d-flex align-items-center justify-content-between border-bottom">
+                            <form action="{{ route('transaction.index') }}" class="d-flex align-items-baseline gap-3">
+                                <select name="fine_status" class="form-select" aria-label="Default select example">
+                                    <option selected value="">Fine Status</option>
+                                    <option value="1">Paid</option>
+                                    <option value="0">Unpaid</option>
+                                </select>
+                                <select name="book_status" class="form-select" aria-label="Default select example">
+                                    <option selected value="">Book Status</option>
+                                    <option value="1">On Process</option>
+                                    <option value="2">Booked</option>
+                                    <option value="3">Borrowed</option>
+                                    <option value="4">Returned</option>
+                                </select>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </form>
                             <div>
-                                <a class="btn btn-success mt-3" href="{{ route('print_transactions') }}"
+                                <a class="btn btn-success" href="{{ route('print_transactions') }}"
                                     target="_blank">Print</a>
                             </div>
                         </div>
@@ -54,7 +69,7 @@
                                                 @endphp
                                                 <td>{{ $fine ?? '-' }}</td>
                                                 @if (!is_null($trs->fine_paid))
-                                                    <td>{{ $trs->fine_paid ? 'Paid':'Unpaid' }}</td>
+                                                    <td>{{ $trs->fine_paid ? 'Paid' : 'Unpaid' }}</td>
                                                 @else
                                                     <td>-</td>
                                                 @endif

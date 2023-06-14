@@ -31,4 +31,25 @@ class Borrow_transaction extends Model
     {
         return $this->hasMany(BookBorrow_transaction::class);
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when(
+            $filters['book_status'] ?? false,
+            fn ($query, $book_status) =>
+            $query->where(
+                fn ($query) =>
+                $query->where('status_id', '=', $book_status)
+            )
+        );
+
+        $query->when(
+            $filters['fine_status'] ?? false,
+            fn ($query, $fine_status) =>
+            $query->where(
+                fn ($query) =>
+                $query->where('fine_paid', '=', $fine_status)
+            )
+        );
+    }
 }
