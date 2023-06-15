@@ -20,7 +20,7 @@
                                     <option value="3">Borrowed</option>
                                     <option value="4">Returned</option>
                                 </select>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success">Filter</button>
                             </form>
                             <div>
                                 <a class="btn btn-success" href="{{ route('print_transactions') }}"

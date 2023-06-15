@@ -6,7 +6,9 @@ use App\Models\Book;
 use App\Models\Type;
 use App\Models\Publisher;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
@@ -18,7 +20,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $book = Book::filter(request(['search']))->paginate(3)->withQueryString();
+        $book = Book::filter(request(['search', 'order_by']))->paginate(3)->withQueryString();
         return view('admin.book.index', compact('book'));
     }
 
