@@ -62,7 +62,7 @@
                                 <div class="pic">
                                     @php
                                         $pathImage = '';
-                                        $ctg->photo ? ($pathImage = 'storage/' . $ctg->photo) : ($pathImage = 'picture/empty.png');
+                                        $ctg->photo ? ($pathImage = 'storage/' . $ctg->photo) : ($pathImage = 'picture/default-book.png');
                                     @endphp
                                     <img src="{{ asset('' . $pathImage . '') }}" class="img-fluid" alt="">
                                 </div>

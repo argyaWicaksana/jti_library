@@ -32,7 +32,7 @@
                     <div>
                         @php
                             $pathImage = '';
-                            $student->ktm_picture ? ($pathImage = 'storage/' . $student->ktm_picture) : ($pathImage = 'picture/empty.png');
+                            $student->ktm_picture ? ($pathImage = 'storage/' . $student->ktm_picture) : ($pathImage = 'picture/default-ktm.png');
                         @endphp
                         <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                     </div>

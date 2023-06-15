@@ -59,7 +59,7 @@
                                                 <td>
                                                     @php
                                                         $pathImage = '';
-                                                        $bk->photo ? ($pathImage = 'storage/' . $bk->photo) : ($pathImage = 'picture/empty.png');
+                                                        $bk->photo ? ($pathImage = 'storage/' . $bk->photo) : ($pathImage = 'picture/default-book.png');
                                                     @endphp
                                                     <img src="{{ asset('' . $pathImage . '') }}" width="100"
                                                         alt="">

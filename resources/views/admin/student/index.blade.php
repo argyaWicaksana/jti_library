@@ -61,7 +61,7 @@
                                         <td>
                                             @php
                                             $pathImage = '';
-                                            $mhs->ktm_picture ? ($pathImage = 'storage/' . $mhs->ktm_picture) : ($pathImage = 'picture/empty.png');
+                                            $mhs->ktm_picture ? ($pathImage = 'storage/' . $mhs->ktm_picture) : ($pathImage = 'picture/default-ktm.png');
                                             @endphp
                                             <img src="{{ asset('' . $pathImage . '') }}" width="100" alt="">
                                         </td>
